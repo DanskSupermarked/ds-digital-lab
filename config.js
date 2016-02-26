@@ -14,7 +14,7 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'https://ds-digital-lab.azurewebsites.net',
+        url: 'https://ds-digital-lab.azurewebsites.net/',
         mail: {},
         database: {
             client: 'sqlite3',
