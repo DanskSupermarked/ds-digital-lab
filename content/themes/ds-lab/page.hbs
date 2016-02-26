@@ -17,7 +17,7 @@ window.authorName = '{{author.name}}';
         <header class="author center small">
             <table>
               <tr>
-                <td width="5%"><img src="{{author.image}}" class="author__image round-img"></td>
+                {{#if author.image}}<td width="5%"><img src="{{author.image}}" class="author__image round-img"></td>{{/if}}
                 <td>
                   <span class="author__name"><a href="/author/{{author.slug}}">{{author.name}}</a></span><br>
                   <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#readTime}}{{content}}{{/readTime}} read
@@ -61,12 +61,12 @@ window.authorName = '{{author.name}}';
             <section class="author author--top center small">
                 <table>
                   <tr>
-                    <td width="5%">
+                    {{#if author.image}}<td width="5%">
                       <img data-src="{{author.image}}" class="author__image lazy-image img-bg round-img">
-                    </td>
+                    </td>{{/if}}
                     <td>
                       <span class="author__name"><a href="/author/{{author.slug}}">{{author.name}}</a></span><br>
-                      {{author.bio}}<br>
+                      {{#if author.bio}}{{author.bio}}<br>{{/if}}
                       <br>
                       <a href="/author/{{author.slug}}" class="btn btn--cta">More articles</a>{{#if author.website}}<a href="{{author.website}}" target="_blank" class="btn margin-left">Website</a>{{/if}}
                     </td>
