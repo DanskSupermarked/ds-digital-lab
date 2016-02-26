@@ -1,5 +1,7 @@
-/content/apps/
-/content/data/
-/content/images/
+/content/data/**.db
+/content/images/**.jpg
+/content/images/**.png
+/content/images/**.jpeg
+/content/images/**.svg
 /content/themes/ds-lab/node_modules/
 /node_modules/
