@@ -1,0 +1,28 @@
+.share {
+  font-family: $font-family-heading;
+  font-size: $font-size-small;
+  font-weight: 200;
+  line-height: 1rem;
+  margin-top: 3rem;
+  color: $color-grey;
+
+  a {
+    margin-left: 1rem;
+    text-decoration: none !important;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.right {
+      float: right;
+    }
+  }
+
+  img {
+    display: inline-block;
+    height: 1rem;
+    margin-top: -2px;
+    vertical-align: middle;
+  }
+}

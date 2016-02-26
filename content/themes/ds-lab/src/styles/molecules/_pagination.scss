@@ -1,0 +1,16 @@
+.pagination__item {
+  line-height: 2.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+  @media (min-width: 650px) {
+    float: left;
+    width: 1% * (100 / 3);
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+}

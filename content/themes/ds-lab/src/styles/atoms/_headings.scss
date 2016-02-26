@@ -1,0 +1,33 @@
+// -------------------------
+// Alter headings responsive
+// -------------------------
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  font-family: $font-family-heading;
+  font-weight: bold;
+  line-height: $line-height-heading;
+  margin: 0.25em auto;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2;
+  margin-top: 2em;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+  font-weight: normal;
+  margin-top: 2em;
+  color: $color-grey;
+}

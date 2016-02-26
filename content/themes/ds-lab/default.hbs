@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js no-touch">
+<head>
+    {{! Document Settings }}
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}} | {{@blog.title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "/favicon.ico"}}">
+    <link rel="apple-touch-icon" href="{{asset "/apple-touch-icon.png"}}">
+
+    {{! Styles }}
+    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
+
+    {{! Feature detects }}
+    <script>
+        // Javascript
+        !function(e){e.className=e.className.replace("no-js","js")}(document.documentElement);
+
+        // Touch
+        !function(c){"ontouchstart" in document && (c.className=c.className.replace("no-touch","touch"))}(document.documentElement);
+    </script>
+
+    <script>
+        window.apiURL = 'http://localhost:3021/';
+    </script>
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+    {{navigation}}
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    <footer class="footer banner">
+        <p class="h2">{{@blog.title}}</p>
+        <p>{{@blog.description}}</p>
+        <p><a href="/writing-stories/" class="btn btn--inverse btn--cta margin-right">Write a story</a><a href="/about/" class="btn btn--inverse">Learn more</a></p>
+    </footer>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Promise,localStorage" defer></script>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    <script type="text/javascript" src="{{asset "scripts/main.js"}}"></script>
+
+</body>
+</html>

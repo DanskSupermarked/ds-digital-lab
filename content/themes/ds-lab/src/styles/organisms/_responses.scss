@@ -1,0 +1,40 @@
+.responses {
+  margin-top: 3rem;
+}
+
+.response {
+  position: relative;
+}
+
+.responses__form {
+  input,
+  textarea {
+    font-size: $font-size-small;
+    line-height: $line-height-base;
+    width: 100%;
+    padding: 0;
+    border: transparent;
+    outline: none;
+    background: transparent;
+  }
+  input {
+    font-family: $font-family-heading;
+    color: $color-grey;
+  }
+  textarea {
+    font-family: $font-family;
+    height: 6rem * $line-height-base;
+    color: $color-black;
+  }
+}
+
+.response__delete {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+  .author-logged-in .response:hover &,
+  .admin-logged-in .response:hover & {
+    display: block;
+  }
+}

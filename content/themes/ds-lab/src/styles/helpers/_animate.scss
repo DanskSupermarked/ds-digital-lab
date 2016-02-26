@@ -1,0 +1,49 @@
+// ------------------------
+// Animation helper classes
+// ------------------------
+.animate {
+  transition: all 0.25s ease-out;
+}
+
+.animate--slow {
+  transition-duration: 0.5s;
+}
+
+.animate--fast {
+  transition-duration: 0.125s;
+}
+
+// Only animate if javascript is enabled
+// Otherwise elements could be hidden because animation will never be triggered
+.js {
+  .animate__fade-in {
+    opacity: 0;
+    &.animate--active {
+      opacity: 1;
+    }
+  }
+  // .animate__slide-down {
+  //   transform: translate3d(0, -2em, 0);
+  //   &.animate--active {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
+  // .animate__slide-up {
+  //   transform: translate3d(0, 1em, 0);
+  //   &.animate--active {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
+  // .animate__slide-right {
+  //   transform: translate3d(-1em, 0, 0);
+  //   &.animate--active {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
+  // .animate__slide-left {
+  //   transform: translate3d(1em, 0, 0);
+  //   &.animate--active {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
+}

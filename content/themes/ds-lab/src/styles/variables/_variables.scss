@@ -1,0 +1,40 @@
+// Break points
+$break-point-phone: 480px;
+$break-point-tablet: 768px;
+$break-point-laptop: 1024px;
+$break-point-desktop: 1200px;
+
+// Colors
+$color-black: #293033;
+$color-grey-dark: #576166;
+$color-grey: #8a9499;
+$color-grey-light: #c2c9cc;
+$color-grey-lighter: #f2f4f5;
+$color-white: #fff;
+$color-primary: #ff9b46;
+$color-secondary: #143241;
+
+// Spacing
+$spacing-base: 2rem;
+
+// Content
+$content-max-width: 34rem;
+
+// Fonts
+$font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+$font-family-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+// Base font set to 18px for clear readability
+// The font-size are increased in a 1:2 ratio to keep harmony
+$font-size-base: 18px;
+$font-size-desktop-base: 21px;
+$font-size-x-small: 12 / 18 * 1em; // -3
+$font-size-small: 15 / 18 * 1em; // -3
+$font-size-h3: 21 / 18 * 1em; // +3
+$font-size-h2: 27 / 18 * 1em; // +6
+$font-size-h1: 39 / 18 * 1em; // +12
+$font-size-summary: 21 / 18 * 1em; // +3
+$line-height-base: 1.6;
+$line-height-heading: 1.15;
+$line-height-summary: 1.4;
+$line-height-computed: $font-size-base * $line-height-base;

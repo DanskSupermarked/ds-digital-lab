@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="21px" viewBox="0 0 24 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>comment--inverse</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-144.000000, -161.000000)" fill="#FFFFFF">
+            <path d="M168,169.75 C168,164.910156 162.629464,161 156,161 C149.370536,161 144,164.910156 144,169.75 C144,172.525391 145.767857,175 148.526786,176.599609 C147.897321,178.882812 146.933036,179.703125 146.089286,180.673828 C145.888393,180.919922 145.660714,181.125 145.727679,181.466797 C145.727679,181.466797 145.727679,181.466797 145.727679,181.480469 C145.794643,181.78125 146.035714,182 146.303571,182 L146.370536,182 C146.892857,181.931641 147.415179,181.835938 147.897321,181.699219 C150.214286,181.097656 152.303571,179.976562 154.058036,178.390625 C154.6875,178.458984 155.34375,178.5 156,178.5 C162.629464,178.5 168,174.589844 168,169.75 L168,169.75 Z" id="comment--inverse" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

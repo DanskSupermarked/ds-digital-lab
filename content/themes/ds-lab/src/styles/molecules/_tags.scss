@@ -1,0 +1,23 @@
+.tags {
+  display: block;
+  margin-top: 0.25em;
+  a {
+    font-family: $font-family-heading;
+    font-size: $font-size-small;
+    font-weight: 200;
+    line-height: 2;
+    display: inline-block;
+    margin-right: 0.5em;
+    padding: 0 0.5em;
+    text-decoration: none !important;
+    color: $color-grey-dark !important;
+    border-radius: 0.25em;
+    background-color: $color-grey-lighter;
+    &:hover {
+      color: $color-black !important;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

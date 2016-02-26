@@ -1,0 +1,17 @@
+<nav class="boxes__item boxes__item--transparent" role="navigation">
+    <div class="pagination small clearfix">
+	    <div class="pagination__item">
+	    	{{#if prev}}
+	    		<a class="btn" href="{{page_url prev}}">Newer articles</a>
+	    	{{/if}}
+	    </div>
+	    <div class="pagination__item">
+	    	Page {{page}} of {{pages}}
+	    </div>
+	    <div class="pagination__item">
+	    	{{#if next}}
+	    		<a class="btn" href="{{page_url next}}">Older articles</a>
+	    	{{/if}}
+	    </div>
+   	</div>
+</nav>

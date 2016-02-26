@@ -1,0 +1,39 @@
+.author {
+  font-family: $font-family-heading;
+  font-weight: 200;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: $color-grey;
+  td {
+    padding: 0;
+    vertical-align: middle;
+  }
+}
+
+.author--top {
+  td {
+    vertical-align: top;
+  }
+}
+
+.author__image {
+  width: 5em;
+  height: 5em;
+  margin-right: 1em;
+}
+
+.author__image--small {
+  width: 4em;
+  height: 4em;
+}
+
+.author__name {
+  font-weight: normal;
+  a {
+    text-decoration: none !important;
+    color: $color-primary;
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}

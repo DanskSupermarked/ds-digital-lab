@@ -1,0 +1,29 @@
+.banner {
+  font-family: $font-family-heading;
+  padding-top: 3em;
+  padding-bottom: 7em;
+  text-align: center;
+  color: $color-white;
+  background: $color-secondary url('/assets/images/lab.svg') no-repeat center bottom;
+  background-size: contain;
+  @media (min-width: 500px) {
+    padding-bottom: 10em;
+  }
+  @media (min-width: 900px) {
+    padding-bottom: 15em;
+  }
+  small {
+    color: $color-grey;
+  }
+  p,
+  h1 {
+    max-width: 26rem;
+    margin: 1rem auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.banner--full-width-image {
+  background-size: cover;
+}

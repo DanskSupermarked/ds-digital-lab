@@ -1,0 +1,20 @@
+// ------------
+// List styling
+// ------------
+ul,
+ol {
+  margin: 0;
+  padding-bottom: 1em;
+  padding-left: 2em;
+}
+
+.list--unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list--inlined {
+  li {
+    display: inline-block;
+  }
+}

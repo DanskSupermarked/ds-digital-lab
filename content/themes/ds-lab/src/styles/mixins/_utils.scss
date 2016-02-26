@@ -1,0 +1,9 @@
+@mixin center() {
+  max-width: $content-max-width;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  @media (min-width: 756px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

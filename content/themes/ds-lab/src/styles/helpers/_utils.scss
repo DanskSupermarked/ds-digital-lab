@@ -1,0 +1,19 @@
+.clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.hidden,
+.user-logged-in .hide-logged-in {
+  display: none !important;
+}
+
+a.disabled {
+  cursor: default;
+}

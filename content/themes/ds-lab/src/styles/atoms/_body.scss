@@ -1,0 +1,91 @@
+// --------------------------
+// Global body and html style
+// --------------------------
+html {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-black;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: 'liga' on;
+  @media (min-width: 650px) {
+    font-size: $font-size-desktop-base;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 1em;
+}
+
+blockquote,
+q {
+  font-style: italic;
+  max-width: $content-max-width;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em 0 1em 1em;
+  color: $color-grey;
+  border-left: 2px solid $color-grey-light;
+  p {
+    margin: 0;
+  }
+}
+code {
+  font-family: monospace, serif;
+  font-size: $font-size-small;
+  height: 1em;
+  padding: 0.25em;
+  color: $color-grey-dark;
+  background-color: $color-grey-lighter;
+}
+
+pre {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: $color-grey-lighter;
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+hr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  border: 0;
+  border-bottom: 1px solid $color-grey-lighter;
+}
+
+small,
+.small {
+  font-size: $font-size-small;
+}
+
+mark {
+  color: $color-black;
+  background-color: lighten($color-primary, 25%);
+}
+
+::selection {
+  background: lighten($color-secondary, 65%);
+}
+::-moz-selection {
+  background: lighten($color-secondary, 65%);
+}

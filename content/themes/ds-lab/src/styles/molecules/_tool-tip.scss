@@ -1,0 +1,31 @@
+.tool-tip {
+  line-height: 2rem;
+  position: absolute;
+  z-index: 10;
+  display: none;
+  width: auto;
+  margin-top: -2.1rem;
+  padding: 0 1rem;
+  color: $color-white;
+  border-radius: 0.25rem;
+  background-color: rgba($color-black, 0.98);
+
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -0.5rem;
+    content: ' ';
+    pointer-events: none;
+    border: solid transparent;
+    border-width: 0.5rem;
+    border-color: rgba($color-black, 0);
+    border-top-color: $color-black;
+  }
+}
+
+.tool-tip--visible {
+  display: block;
+}

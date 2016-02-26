@@ -1,0 +1,51 @@
+// ------------
+// Form styling
+// ------------
+
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: $color-grey-light;
+}
+:-moz-placeholder {
+  opacity: 1;
+  /* Mozilla Firefox 4 to 18 */
+  color: $color-grey-light;
+}
+::-moz-placeholder {
+  opacity: 1;
+  /* Mozilla Firefox 19+ */
+  color: $color-grey-light;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $color-grey-light;
+}
+:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: $color-grey-light;
+}
+
+.validate {
+  position: relative;
+}
+
+.validate:after {
+  position: absolute;
+  top: 0;
+  right: -1em;
+  display: block;
+  width: 1em;
+  height: 1em * $line-height-base;
+  content: '';
+  background: no-repeat center center;
+  background-size: contain;
+}
+
+.validate--valid:after {
+  background-image: url(/assets/images/valid.svg);
+}
+
+.validate--not-valid:after {
+  background-image: url(/assets/images/not-valid.svg);
+}

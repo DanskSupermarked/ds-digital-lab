@@ -1,0 +1,64 @@
+.btn {
+  font-family: $font-family-heading;
+  font-size: $font-size-small;
+  line-height: 2.5em;
+  display: inline-block;
+  padding: 0 1rem;
+  transition: all 0.1s ease-out;
+  text-decoration: none !important;
+  color: $color-grey-dark !important;
+  border: 1px solid $color-grey !important;
+  border-radius: 1rem;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn--small {
+  font-size: $font-size-x-small;
+}
+
+.btn--cta {
+  color: $color-primary !important;
+  border-color: $color-primary !important;
+}
+
+.btn--inverse {
+  color: $color-primary !important;
+  border-color: $color-primary !important;
+}
+
+.btn--inverse.btn--cta {
+  color: $color-white !important;
+  background-color: $color-primary !important;
+}
+
+.btn--disabled {
+  cursor: default;
+  color: $color-grey-light !important;
+  border-color: $color-grey-light !important;
+}
+
+.no-touch {
+  .btn:hover {
+    color: $color-black !important;
+    border-color: $color-grey-dark !important;
+  }
+  .btn--cta:hover {
+    color: darken($color-primary, 10%) !important;
+    border-color: darken($color-primary, 10%) !important;
+  }
+  .btn--inverse:hover {
+    color: lighten($color-primary, 5%) !important;
+    border-color: lighten($color-primary, 5%) !important;
+  }
+  .btn--inverse.btn--cta:hover {
+    color: $color-white !important;
+    border-color: darken($color-primary, 5%) !important;
+    background-color: darken($color-primary, 5%);
+  }
+  .btn--disabled:hover {
+    color: $color-grey-light !important;
+    border-color: $color-grey-light !important;
+  }
+}

@@ -1,0 +1,12 @@
+.content {
+  min-height: 1000px;
+
+  & > * {
+    @include center();
+  }
+
+  & > .full-width {
+    max-width: none;
+    margin: 0;
+  }
+}
