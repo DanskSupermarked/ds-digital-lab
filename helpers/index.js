@@ -74,7 +74,13 @@ module.exports = function() {
     });
 
     hbs.registerHelper('inline_css', function(context, options) {
-        var filePath = getAssetUrl(context).split('?')[0];
+        var url = getAssetUrl(context);
+
+        if (process.env.NODE_ENV !== 'production') {
+            return `<link rel="stylesheet" type="text/css" href="${url}" />`
+        }
+
+        var filePath = url.split('?')[0]
 
         if (!cacheInline[filePath]) {
             cacheInline[filePath] = fs.readFileSync('content/themes/ds-lab' + filePath, 'utf8');

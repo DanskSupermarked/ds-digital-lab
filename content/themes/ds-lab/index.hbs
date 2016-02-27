@@ -11,3 +11,16 @@
 {{! The tag below includes the post loop - partials/loop.hbs }}
 
 {{> "loop"}}
+
+{{#get "tags" limit="30" include="count.posts" order="count.posts desc"}}
+<aside>
+	<div class="tags tags--cloud center">
+		<h2>Most popular categories</h2>
+    <p>
+    	{{#foreach tags}}
+          <a href="/tag/{{slug}}">{{name}}</a>
+      {{/foreach}}
+    </p>
+  </div>
+</aside>
+{{/get}}
