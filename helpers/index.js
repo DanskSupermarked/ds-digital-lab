@@ -1,7 +1,11 @@
+var fs = require('fs');
 var hbs = require('express-hbs');
 var cheerio = require('cheerio');
 var stripTags = require('striptags');
 var wordCount = require('word-count');
+var getAssetUrl = require('../core/server/data/meta/asset_url');
+
+cacheInline = {};
 
 module.exports = function() {
     hbs.registerHelper('convertImages', function(options) {
@@ -68,4 +72,14 @@ module.exports = function() {
 
         return readTime + affix;
     });
+
+    hbs.registerHelper('inline_css', function(context, options) {
+        var filePath = getAssetUrl(context).split('?')[0];
+
+        if (!cacheInline[filePath]) {
+            cacheInline[filePath] = fs.readFileSync('content/themes/ds-lab' + filePath, 'utf8');
+        }
+
+        return `<style>${cacheInline[filePath]}</style>`;
+    })
 };

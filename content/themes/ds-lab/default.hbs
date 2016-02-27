@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="{{asset "/apple-touch-icon.png"}}">
 
     {{! Styles }}
-    <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
+    {{{inline_css "styles/main.css"}}}
 
     {{! Feature detects }}
     <script>
@@ -26,9 +26,8 @@
 
         // Touch
         !function(c){"ontouchstart" in document && (c.className=c.className.replace("no-touch","touch"))}(document.documentElement);
-    </script>
 
-    <script>
+        // Options
         window.apiURL = 'https://ds-digital-lab-meta-api.azurewebsites.net/';
     </script>
 
