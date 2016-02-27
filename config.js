@@ -3,6 +3,9 @@
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
 
+var keepAlive = require('./utils/keep-alive');
+keepAlive('https://ds-digital-lab-meta-api.azurewebsites.net/');
+
 // Include any custom additions
 require('./helpers')();
 
