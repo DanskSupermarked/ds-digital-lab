@@ -1,0 +1,17 @@
+.search {
+  min-height: 40em;
+}
+
+.search__input {
+  font-size: $font-size-h2;
+  line-height: $line-height-heading;
+  margin-top: 1rem;
+  @media (min-width: 650px) {
+    font-size: $font-size-h1;
+  }
+}
+
+.search__category {
+  text-transform: capitalize;
+  color: $color-grey-light !important;
+}

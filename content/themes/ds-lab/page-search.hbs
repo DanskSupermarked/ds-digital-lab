@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+<main role="main">
+    <article class="{{post_class}}">
+
+        <section class="content">
+            {{#convertImages}}
+                {{content}}
+            {{/convertImages}}
+        </section>
+
+    </article>
+</main>
+
+{{/post}}
+
+<aside class="boxes search" id="results">
+	<nav class="center"><input type="text" class="search__input js-search-field" placeholder="Search Digital Lab"></nav>
+	<section class="search__list"></section>
+
+</aside>

@@ -8,7 +8,7 @@
     line-height: 2;
     display: inline-block;
     margin-right: 0.5em;
-    padding: 0 0.5em;
+    padding: 0 0.75em;
     text-decoration: none !important;
     color: $color-grey-dark !important;
     border-radius: 0.25em;
@@ -24,4 +24,10 @@
 
 .tags--cloud {
   padding-bottom: 2em;
+  a {
+    display: inline-block;
+    margin-bottom: 0.75em;
+    border: 1px solid $color-grey-light;
+    background-color: $color-white;
+  }
 }

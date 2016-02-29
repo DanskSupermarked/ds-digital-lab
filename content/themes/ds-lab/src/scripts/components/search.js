@@ -1,6 +1,10 @@
 import lunr from 'lunr';
+import lazyImages from 'ds-assets/lazy/images';
 import stripHTMLTags from '../lib/strip-html-tags';
+import searchResultTemplate from '../templates/search-result';
 
+var $searchInput;
+var $searchList;
 var db = {};
 
 var index = lunr(function() {
@@ -107,10 +111,31 @@ var search = function(query) {
 	});
 };
 
+var renderSearchResults = function(results) {
+	var html = '';
+	results.forEach(function(result) {
+		html += searchResultTemplate(result);
+	});
+	$searchList.innerHTML = html;
+	lazyImages(1);
+};
+
 export default function() {
 	buildPostsIndex().catch(e => console.error(e));
 	buildTagsIndex().catch(e => console.error(e));
 	buildUsersIndex().catch(e => console.error(e));
-	window.search = search;
-	window.db = db;
+
+	$searchInput = document.querySelector('.search__input');
+	$searchList = document.querySelector('.search__list');
+
+	if (!$searchInput || !$searchList) {
+		return;
+	}
+	$searchInput.addEventListener('input', function() {
+		var results = search($searchInput.value);
+		renderSearchResults(results);
+	});
+
+	$searchInput.focus();
+
 }

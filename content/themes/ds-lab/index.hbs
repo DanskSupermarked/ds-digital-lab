@@ -13,9 +13,9 @@
 {{> "loop"}}
 
 {{#get "tags" limit="30" include="count.posts" order="count.posts desc"}}
-<aside>
-	<div class="tags tags--cloud center">
-		<h2>Most popular categories</h2>
+<aside class="boxes">
+	<div class="boxes__item boxes__item--transparent boxes__item--no-margin-top tags tags--cloud">
+		<h3>Most popular categories</h3>
     <p>
     	{{#foreach tags}}
           <a href="/tag/{{slug}}">{{name}}</a>
