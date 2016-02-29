@@ -50,7 +50,7 @@ export default function() {
   // Change wording on "sign in" button when user is logged in
   getUserData().then(function() {
     getAll('.nav__item--sign-in').forEach(function($signin) {
-      $signin.innerHTML = 'Write a story';
+      $signin.innerHTML = 'Create a story';
     });
   }).catch(function() {});
 
