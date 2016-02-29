@@ -7,9 +7,9 @@
 {{#author}}
 
     <header class="banner{{#if cover}} banner--full-width-image" style="background-image: url({{cover}}){{/if}}">
-        <h1 class="h2">{{name}}</h1>
-        {{#if bio}}<p>{{bio}}</p>{{/if}}
-        <p class="small">
+        <h1 class="h2 highlight"><span>{{name}}</span></h1>
+        {{#if bio}}<p class="highlight"><span>{{bio}}</span></p>{{/if}}
+        <p class="small highlight"><span>
             {{#if location}}
                 {{location}}<br>
             {{/if}}
@@ -17,7 +17,7 @@
                 <a href="{{website}}">{{website}}</a><br>
             {{/if}}
             {{plural ../pagination.total empty='No articles' singular='% article' plural='% articles'}}
-        </p>
+        </span></p>
     </header>
 
     <!--<section class="author-profile inner">

@@ -83,6 +83,12 @@ mark {
   background-color: lighten($color-primary, 25%);
 }
 
+.highlight span {
+  padding: 0.1em 0.5em;
+  background-color: rgba($color-secondary, 0.9);
+  box-decoration-break: clone;
+}
+
 ::selection {
   background: lighten($color-secondary, 65%);
 }
