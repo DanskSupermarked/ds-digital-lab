@@ -9,10 +9,12 @@ import validateInputFields from 'ds-assets/validate/input-fields';
 import navigation from './components/navigation';
 import response from './components/response';
 import toolTip from './components/tool-tip';
+import search from './components/search';
 import getLoggedInData from './lib/get-logged-in-data';
 
 navigation();
 toolTip();
+search();
 
 getAll('img').forEach(function($img) {
 	$img.onload = function() {
