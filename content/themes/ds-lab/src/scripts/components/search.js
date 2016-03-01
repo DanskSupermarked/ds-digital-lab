@@ -1,5 +1,6 @@
 import lunr from 'lunr';
 import lazyImages from 'ds-assets/lazy/images';
+import getAll from 'ds-assets/dom/get-all';
 import stripHTMLTags from '../lib/strip-html-tags';
 import searchResultTemplate from '../templates/search-result';
 
@@ -117,6 +118,12 @@ var renderSearchResults = function(results) {
 		html += searchResultTemplate(result);
 	});
 	$searchList.innerHTML = html;
+	getAll('.boxes__item', $searchList).forEach(function($boxItem, i) {
+		setTimeout(function() {
+			$boxItem.classList.remove('hidden');
+			setTimeout(() => $boxItem.classList.add('animate--active'), 0);
+		}, 300 + i * 250);
+	});
 	lazyImages(1);
 };
 
@@ -137,5 +144,7 @@ export default function() {
 	});
 
 	$searchInput.focus();
+
+	$searchList.setAttribute('style', `min-height: ${window.innerHeight}px`);
 
 }

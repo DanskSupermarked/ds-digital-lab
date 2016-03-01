@@ -11,7 +11,7 @@ export default function(result) {
 	}
 
 	return `
-<article class="boxes__item small">
+<article class="boxes__item small animate animate__fade-in hidden">
 	<h3 class="search__category">${result.category}</h3>
 	<h2 class="no-margin-top">${result.title}</h2>
 	<p>${excerpt}</p>
