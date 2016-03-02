@@ -3,7 +3,6 @@
  * the articles.
  */
 
-var md5 = require('md5');
 var apiUrl = window.apiURL;
 var id = window.postId;
 
@@ -83,20 +82,6 @@ export var addResponse = function(response) {
 
       // Set the publish data to now
       response.published = new Date().toISOString();
-
-      // Create a author image if not present
-      if (!response.image) {
-
-        // Default is a random image from unsplash
-        response.image = 'https://unsplash.it/84/84?image=' + Math.ceil(Math.random() * 1000);
-
-        // If there is a gravatar on the e-mails this is used
-        if (response.email) {
-          response.image = `https://gravatar.com/avatar/${md5(response.email)}?s=84&d=${response.image}`;
-        }
-      }
-
-      delete response.email;
 
       // Update the responses list
       data.responses.push(response);
