@@ -5,7 +5,7 @@ var stripTags = require('striptags');
 var wordCount = require('word-count');
 var getAssetUrl = require('../core/server/data/meta/asset_url');
 
-cacheInline = {};
+var cacheInline = {};
 
 module.exports = function() {
     hbs.registerHelper('convertImages', function(options) {
@@ -52,7 +52,6 @@ module.exports = function() {
         return new hbs.SafeString($.html());
     });
 
-
     hbs.registerHelper('toFirstParagraph', function(options) {
         var raw = options.fn(this);
         var closingP = raw.indexOf('</p>');
@@ -73,19 +72,19 @@ module.exports = function() {
         return readTime + affix;
     });
 
-    hbs.registerHelper('inline_css', function(context, options) {
+    hbs.registerHelper('inline_css', function(context) {
         var url = getAssetUrl(context);
 
         if (process.env.NODE_ENV !== 'production') {
-            return `<link rel="stylesheet" type="text/css" href="${url}" />`
+            return `<link rel="stylesheet" type="text/css" href="${url}" />`;
         }
 
-        var filePath = url.split('?')[0]
+        var filePath = url.split('?')[0];
 
         if (!cacheInline[filePath]) {
             cacheInline[filePath] = fs.readFileSync('content/themes/ds-lab' + filePath, 'utf8');
         }
 
         return `<style>${cacheInline[filePath]}</style>`;
-    })
+    });
 };

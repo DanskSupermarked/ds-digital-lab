@@ -58,6 +58,10 @@ export var getMeta = function(raw) {
     });
 };
 
+export var getSearchIndex = function(query) {
+  return request('search?q=' + query);
+};
+
 /**
  * Increment the like value with one
  * @return {Promise}

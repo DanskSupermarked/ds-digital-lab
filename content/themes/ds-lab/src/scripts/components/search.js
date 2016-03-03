@@ -1,136 +1,94 @@
-import lunr from 'lunr';
 import lazyImages from 'ds-assets/lazy/images';
 import getAll from 'ds-assets/dom/get-all';
-import stripHTMLTags from '../lib/strip-html-tags';
-import searchResultTemplate from '../templates/search-result';
+import * as api from '../lib/api';
+import postTemplate from '../templates/post';
+import authorTemplate from '../templates/author';
+import tagTemplate from '../templates/tag';
+
+const MAX_RESULTS = 10;
 
 var $searchInput;
 var $searchList;
-var db = {};
+var latestCounter = 0;
 
-var index = lunr(function() {
-	this.field('title', {
-		boost: 10
+var getSearchResult = function(path) {
+	var absolute = window.ghost.url.api(path, {
+		include: 'tags,author,count.posts'
 	});
-	this.field('description');
-	this.ref('id');
-});
-
-var getData = function(resource, query, map = (data) => data) {
-	// Cached in local storage
-	var expires = localStorage.getItem(`search:${resource}:expires`);
-	if (expires && expires > Date.now()) {
-		var data = localStorage.getItem(`search:${resource}:data`);
-		if (data) {
-			return Promise.resolve(JSON.parse(data));
-		}
-	}
-
-	var url = window.ghost.url.api(resource, query);
-
-	// Get data from api
-	return fetch(url, {
-			method: 'GET'
-		})
+	var relative = absolute.substr(absolute.indexOf('/ghost'), absolute.length);
+	return fetch(relative)
 		.then(function(response) {
-			if (response.status !== 200) {
-				return Promise.reject(response.status);
+			if (response.status >= 300) {
+				return Promise.reject(response);
 			}
-			return response.json();
+			return response;
 		})
-
-	// Map posts
-	.then(data => data[resource].map(map))
-
-	// Cache in local storage
-	.then(function(data) {
-		localStorage.setItem(`search:${resource}:data`, JSON.stringify(data));
-
-		var tomorrow = Date.now() + 24 * 60 * 60 * 1000;
-		localStorage.setItem(`search:${resource}:expires`, tomorrow);
-		return data;
-	});
+		.then(response => response.json());
 };
 
-var buildIndex = function(resource, query, map) {
-	return getData(resource, query, map).then(function(data) {
-		data.forEach(function(entry) {
-			db[entry.id] = entry;
-			index.add(entry);
-		});
-	});
-};
-
-var buildPostsIndex = function() {
-	return buildIndex('posts', {
-		limit: 'all',
-		fields: 'title,html,uuid,slug'
-	}, function(post) {
-		return {
-			title: post.title,
-			description: stripHTMLTags(post.html),
-			id: post.uuid,
-			url: `/${post.slug}/`,
-			category: 'article'
-		};
-	});
-};
-
-var buildTagsIndex = function() {
-	return buildIndex('tags', {
-		limit: 'all',
-		fields: 'description,name,slug,uuid'
-	}, function(tag) {
-		return {
-			title: tag.name,
-			description: tag.description,
-			id: tag.uuid,
-			url: `/tag/${tag.slug}/`,
-			category: 'tag'
-		};
-	});
-};
-
-var buildUsersIndex = function() {
-	return buildIndex('users', {
-		limit: 'all',
-		fields: 'bio,name,slug,uuid'
-	}, function(user) {
-		return {
-			title: user.name,
-			description: user.bio,
-			id: user.uuid,
-			url: `/author/${user.slug}/`,
-			category: 'author'
-		};
-	});
-};
-
-var search = function(query) {
-	return index.search(query).map(function(entry) {
-		return db[entry.ref];
-	});
-};
-
-var renderSearchResults = function(results) {
-	var html = '';
-	results.forEach(function(result) {
-		html += searchResultTemplate(result);
-	});
+var renderResults = function(results) {
+	var html = results.map(function(result) {
+		if (result.posts) {
+			return postTemplate(result.posts[0]);
+		}
+		if (result.users) {
+			return authorTemplate(result.users[0]);
+		}
+		if (result.tags) {
+			return tagTemplate(result.tags[0]);
+		}
+		return '';
+	}).join('');
 	$searchList.innerHTML = html;
+	lazyImages(1);
 	getAll('.boxes__item', $searchList).forEach(function($boxItem, i) {
 		setTimeout(function() {
 			$boxItem.classList.remove('hidden');
 			setTimeout(() => $boxItem.classList.add('animate--active'), 0);
-		}, 300 + i * 250);
+		}, i * 500);
 	});
-	lazyImages(1);
+};
+
+var search = function(query) {
+
+	var id = ++latestCounter;
+	var minTime = Date.now() + 300;
+
+	$searchList.innerHTML = '';
+
+	var isLatest = function(data) {
+		if (id !== latestCounter) {
+			return Promise.reject();
+		}
+		return data;
+	};
+
+	api.getSearchIndex(query)
+		.then(isLatest)
+		.then(function(indexes) {
+			var promises = indexes.slice(0, MAX_RESULTS).map(function(index) {
+				return getSearchResult(index.ref);
+			});
+			return Promise.all(promises);
+		})
+		.then(function(data) {
+			if (minTime < Date.now()) {
+				return data;
+			}
+			return new Promise(function(resolve) {
+				setTimeout(() => resolve(data), minTime - Date.now());
+			});
+		})
+		.then(isLatest)
+		.then(renderResults)
+		.catch(function(err) {
+			if (err) {
+				console.error(err);
+			}
+		});
 };
 
 export default function() {
-	buildPostsIndex().catch(e => console.error(e));
-	buildTagsIndex().catch(e => console.error(e));
-	buildUsersIndex().catch(e => console.error(e));
 
 	$searchInput = document.querySelector('.search__input');
 	$searchList = document.querySelector('.search__list');
@@ -139,8 +97,7 @@ export default function() {
 		return;
 	}
 	$searchInput.addEventListener('input', function() {
-		var results = search($searchInput.value);
-		renderSearchResults(results);
+		search($searchInput.value);
 	});
 
 	$searchInput.focus();
