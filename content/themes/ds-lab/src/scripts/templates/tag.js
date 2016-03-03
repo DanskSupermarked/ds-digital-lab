@@ -21,7 +21,7 @@ export default function(tag) {
       </table>
   </header>
   ${coverImage}
-  <p>${tag.description}</p>
+  <p>${tag.description || ''}</p>
   <p><a href="/tag/${tag.slug}/" class="btn">Articles in category</a></p>
 </article>
 `;

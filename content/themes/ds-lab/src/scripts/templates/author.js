@@ -1,7 +1,5 @@
 export default function(author) {
 
-	console.log(author);
-
 	var authorImage = '';
 	if (author.image) {
 		authorImage = `<td width="5%"><img src="${author.image}" class="author__image round-img"></td>`;
@@ -27,7 +25,7 @@ export default function(author) {
       </table>
   </header>
   ${coverImage}
-  <p>${author.bio}</p>
+  <p>${author.bio || ''}</p>
   <p><a href="/author/${author.slug}/" class="btn">Articles by author</a></p>
 </article>
 `;
