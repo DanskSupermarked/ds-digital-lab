@@ -76,6 +76,19 @@ export var like = function() {
 };
 
 /**
+ * Update author email used to send e-mails when a response i received.
+ * @return {Promise}
+ */
+export var updateAuthorEmail = function(authorEmail) {
+  if (!id) {
+    return Promise.reject(new Error('No postId'));
+  }
+  return request('?id=' + id, 'PUT', {
+    authorEmail
+  });
+};
+
+/**
  * Add a response
  * @param {object} response
  * @return {Promise}

@@ -11,6 +11,7 @@ import response from './components/response';
 import toolTip from './components/tool-tip';
 import search from './components/search';
 import getLoggedInData from './lib/get-logged-in-data';
+import * as api from './lib/api';
 
 navigation();
 toolTip();
@@ -40,5 +41,6 @@ getLoggedInData().then(function(user) {
 	// Author logged in
 	if (user.name === window.authorName) {
 		$body.classList.add('author-logged-in');
+		return api.updateAuthorEmail(user.email);
 	}
 }).catch(function() {});
