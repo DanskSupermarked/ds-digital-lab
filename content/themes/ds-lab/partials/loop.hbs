@@ -1,8 +1,3 @@
-{{! Previous/next page links - only displayed on page 2+ }}
-<!--<div class="extra-pagination inner">
-    {{pagination}}
-</div>-->
-
 <div class="boxes">
 
 {{! This is the post loop - each post will be output using this markup }}
@@ -13,17 +8,17 @@
             <tr>
                 {{#if author.image}}<td width="5%"><img src="{{author.image}}" class="author__image round-img"></td>{{/if}}
                 <td><span class="author__name"><a href="/author/{{author.slug}}">{{author.name}}</a></span><br>
-                <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#readTime}}{{content}}{{/readTime}} read{{#if tags}}<br>
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#read_time}}{{content}}{{/read_time}} read{{#if tags}}<br>
                 <span class="tags">{{{tags separator=""}}}</span>
                 {{/if}}</td>
             </tr>
         </table>
     </header>
-    {{#toFirstParagraph}}
-        {{#convertImages}}
+    {{#to_first_paragraph}}
+        {{#convert_images}}
             {{content}}
-        {{/convertImages}}
-    {{/toFirstParagraph}}
+        {{/convert_images}}
+    {{/to_first_paragraph}}
     <p><a href="{{url}}" class="btn">Read more</a></p>
 </article>
 {{/foreach}}
@@ -31,6 +26,3 @@
 {{pagination}}
 
 </div>
-
-{{! Previous/next page links - displayed on every page }}
-<!--{{pagination}}-->

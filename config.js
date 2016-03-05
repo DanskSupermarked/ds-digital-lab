@@ -3,28 +3,29 @@
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
 
-var keepAlive = require('./utils/keep-alive');
-keepAlive('https://ds-digital-lab-meta-api.azurewebsites.net/');
+if (process.env.NODE_ENV === 'production') {
+    var keepAlive = require('./utils/keep-alive');
+    keepAlive(process.env.API_URL);
+}
 
 // Include any custom additions
 require('./helpers')();
 
-var path = require('path'),
-    config;
+var path = require('path');
 
-config = {
+var config = {
     // ### Production
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'https://ds-digital-lab.azurewebsites.net/',
+        url: process.env.URL,
         mail: {
             transport: 'SMTP',
             options: {
                 service: 'Mailgun',
                 auth: {
-                    user: 'postmaster@sandbox6a50bb194e3a44ddbee8ef64b2a10a75.mailgun.org',
-                    pass: 'e8d617484963e983aad61421dca5ac71'
+                    user: process.env.MAILGUN_USER,
+                    pass: process.env.MAILGUN_PASS
                 }
             }
         },

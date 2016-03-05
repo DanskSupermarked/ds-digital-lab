@@ -20,16 +20,16 @@ window.authorName = '{{author.name}}';
                 {{#if author.image}}<td width="5%"><img src="{{author.image}}" class="author__image round-img"></td>{{/if}}
                 <td>
                   <span class="author__name"><a href="/author/{{author.slug}}">{{author.name}}</a></span><br>
-                  <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#readTime}}{{content}}{{/readTime}} read
+                  <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#read_time}}{{content}}{{/read_time}} read
                 </td>
               </tr>
             </table>
         </header>
 
         <section class="content">
-            {{#convertImages}}
+            {{#convert_images}}
                 {{content}}
-            {{/convertImages}}
+            {{/convert_images}}
         </section>
 
         <footer>

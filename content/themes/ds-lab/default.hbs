@@ -28,7 +28,7 @@
         !function(c){"ontouchstart" in document && (c.className=c.className.replace("no-touch","touch"))}(document.documentElement);
 
         // Options
-        window.apiURL = 'https://ds-digital-lab-meta-api.azurewebsites.net/';
+        window.apiURL = '{{{env "API_URL" "http://localhost:3021"}}}/';
     </script>
 
     {{! Ghost outputs important style and meta data with this tag }}
