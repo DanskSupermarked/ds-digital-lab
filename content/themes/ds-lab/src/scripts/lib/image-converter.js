@@ -18,7 +18,7 @@ module.exports = function(raw) {
 		$newImg.setAttribute('class', 'lazy-image');
 
 		alt.split(';').forEach(function(str) {
-			if (str === 'full-size') {
+			if (str === 'full-size' || str === 'full-width') {
 				$imgWrapper.classList.add('full-width');
 			} else if (str.indexOf('ratio=') === 0) {
 				var ratio = str.replace('ratio=', '');
@@ -27,6 +27,8 @@ module.exports = function(raw) {
 					ratio = dimensions[0] / dimensions[1];
 				}
 				padding = 100 / ratio;
+			} else if (str === 'borders') {
+				$imgWrapper.querySelector('.img-container').classList.add('img-container--borders');
 			} else {
 				alt = str;
 			}

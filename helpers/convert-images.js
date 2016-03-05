@@ -19,7 +19,7 @@ module.exports = function(options) {
         }
 
         alt.split(';').forEach(function(str) {
-            if (str === 'full-size') {
+            if (str === 'full-size' || str === 'full-width') {
                 $newImg('.img-wrapper').addClass('full-width');
             } else if (str.indexOf('ratio=') === 0) {
                 var ratio = str.replace('ratio=', '');
@@ -28,6 +28,8 @@ module.exports = function(options) {
                     ratio = dimensions[0] / dimensions[1];
                 }
                 padding = 100 / ratio;
+            } else if (str === 'borders') {
+                $newImg('.img-container').addClass('img-container--borders');
             } else {
                 alt = str;
             }
