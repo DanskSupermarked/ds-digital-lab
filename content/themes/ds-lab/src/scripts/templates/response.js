@@ -17,12 +17,12 @@ export default function(response) {
     readTime = ` &middot; ${response.readTime} read`;
   }
 
-  var excerpt = response.excerpt || response.text;
+  var excerpt = response.excerpt || response.html;
 
   var readMore = '';
   if (response.excerpt) {
     readMore = `
-<p class="response__text small hidden">${encode(response.text)}</p>
+<div class="response__text hidden">${response.html}</div>
 <p><a href="#" class="btn response__read-more">Read more</a></p>
 `;
   }
@@ -46,7 +46,7 @@ export default function(response) {
     </table>
   </div>
   <a href="#" class="response__delete" data-published="${response.published}" data-name="${response.name}"><img data-src="/assets/images/trash.svg" class="lazy-image"></a>
-  <p class="response__excerpt">${encode(excerpt)}</p>
+  <div class="response__excerpt">${excerpt}</div>
   ${readMore}
 </div>`;
 }

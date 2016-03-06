@@ -1,9 +1,19 @@
 .responses {
   margin-top: 3rem;
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .response {
   position: relative;
+}
+
+.response__text, .response__excerpt {
+  img {
+    max-width: 100%;
+  }
 }
 
 .responses__form {
@@ -31,5 +41,12 @@
   .author-logged-in .response:hover &,
   .admin-logged-in .response:hover & {
     display: block;
+  }
+}
+
+.response-form__markdown-helpers {
+  width: 100%;
+  td {
+    width: 50%;
   }
 }

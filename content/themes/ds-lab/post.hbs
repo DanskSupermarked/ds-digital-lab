@@ -85,6 +85,57 @@ window.authorName = '{{author.name}}';
                     <p class="validate validate--not-valid responses-form__text" data-validate-required><textarea placeholder="Write your response..." rows="5" name="text"></textarea></p>
                     <p class="hidden"><input type="text" name="image"></p>
                     <p><a href="#" class="btn btn--cta btn--small btn--disabled">Respond</a></p>
+                    <p class="small"><em>Use <a href="#" class="response-form__markdown-expander">Markdown</a> in the response</em></p>
+                    <table class="small response-form__markdown-helpers hidden">
+                        <tr>
+                            <td><strong>Markdown</strong></td>
+                            <td><strong>Result</strong></td>
+                        </tr>
+                        <tr>
+                            <td>**text**</td>
+                            <td><strong>Bold</strong></td>
+                        </tr>
+                        <tr>
+                            <td>*text*</td>
+                            <td><em>Emphasize</em></td>
+                        </tr>
+                        <tr>
+                            <td>~~text~~</td>
+                            <td><del>Strike-through</del></td>
+                        </tr>
+                        <tr>
+                            <td>[title](http://)</td>
+                            <td><a href="#">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td>`code`</td>
+                            <td><code>Inline Code</code></td>
+                        </tr>
+                        <tr>
+                            <td>![alt](http://)</td>
+                            <td>Image</td>
+                        </tr>
+                        <tr>
+                            <td>* item</td>
+                            <td><ul><li>List</li></ul></td>
+                        </tr>
+                        <tr>
+                            <td>&gt; quote</td>
+                            <td><blockquote><p>Blockquote</p></blockquote></td>
+                        </tr>
+                        <tr>
+                            <td># Heading</td>
+                            <td><p class="h1">Heading 1</p></td>
+                        </tr>
+                        <tr>
+                            <td>## Heading</td>
+                            <td><p class="h2">Heading 1</p></td>
+                        </tr>
+                        <tr>
+                            <td>### Heading</td>
+                            <td><p class="h3">Heading 1</p></td>
+                        </tr>
+                    </table>
                 </div>
             </section>
         </footer>

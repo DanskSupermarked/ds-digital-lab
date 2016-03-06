@@ -284,4 +284,10 @@ export default function() {
 	getAll('.share__like').forEach(attachLikeEvent);
 	$cta.addEventListener('click', submitResponse);
 
+	// Show markdown helpers
+	document.querySelector('.response-form__markdown-expander').addEventListener('click', function(e) {
+		e.preventDefault();
+		document.querySelector('.response-form__markdown-helpers').classList.remove('hidden');
+	});
+
 }
