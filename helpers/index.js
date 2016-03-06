@@ -6,4 +6,5 @@ module.exports = function() {
 	hbs.registerHelper('read_time', require('./read-time'));
 	hbs.registerHelper('inline_css', require('./inline-css'));
 	hbs.registerHelper('env', require('./env'));
+	hbs.registerHelper('production', require('./production'));
 };

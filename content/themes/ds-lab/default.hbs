@@ -17,7 +17,11 @@
     <link rel="apple-touch-icon" href="{{asset "/apple-touch-icon.png"}}">
 
     {{! Styles }}
-    {{{inline_css "styles/main.css"}}}
+    {{#production}}
+        {{{inline_css "styles/main.min.css"}}}
+    {{else}}
+        <link rel="stylesheet" type="text/css" href="{{asset "styles/main.css"}}" />
+    {{/production}}
 
     {{! Feature detects }}
     <script>
@@ -49,7 +53,12 @@
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Promise,localStorage,fetch"></script>
 
-    <script type="text/javascript" src="{{asset "scripts/main.js"}}"></script>
+    {{#production}}
+        <script type="text/javascript" src="{{asset "scripts/main.min.js"}}"></script>
+    {{else}}
+        <script type="text/javascript" src="{{asset "scripts/main.js"}}"></script>
+    {{/production}}
+
 
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}

@@ -7,6 +7,8 @@ module.exports = function(gulp, config) {
     var stream = require('vinyl-source-stream');
     var buffer = require('vinyl-buffer');
     var uglify = require('gulp-uglify');
+    var rename = require('gulp-rename');
+    var sourcemaps = require('gulp-sourcemaps');
 
     // set up the browserify instance on a task basis
     var b = browserify({
@@ -29,6 +31,12 @@ module.exports = function(gulp, config) {
       })
       .pipe(stream('main.js'))
       .pipe(buffer())
+      // .pipe(sourcemaps.init({
+      //   loadMaps: true
+      // }))
+      // .pipe(sourcemaps.write())
+      .pipe(gulp.dest(config.dest))
+      .pipe(rename('main.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(config.dest));
   };
