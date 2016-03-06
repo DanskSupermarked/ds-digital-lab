@@ -38,7 +38,28 @@ textarea {
   position: relative;
 }
 
-.validate:after {
+.validate:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1em;
+  display: block;
+  width: 0.25rem;
+  content: '';
+  @media (min-width: 650px) {
+    left: -2em;
+  }
+}
+
+.validate--valid:before {
+  background-color: rgba($color-succes, 0.5);
+}
+
+.validate--not-valid:before {
+  background-color: rgba($color-alert, 0.25);
+}
+
+/*.validate:after {
   position: absolute;
   top: 0;
   right: -1em;
@@ -56,4 +77,4 @@ textarea {
 
 .validate--not-valid:after {
   background-image: url(/assets/images/not-valid.svg);
-}
+}*/

@@ -79,11 +79,11 @@ window.authorName = '{{author.name}}';
                 <div class="responses__list"></div>
                 <div class="responses__form boxes__item" id="write-response">
                     <h3>Write a response</h3>
-                    <p class="validate hide-logged-in" data-validate-required><input type="text" name="name" placeholder="Name"></p>
-                    <p class="validate hide-logged-in" data-validate-required data-validate-email><input type="e-mail" name="email" placeholder="E-mail"></p>
-                    <p class="validate hide-logged-in" data-validate-url><input type="text" name="website" placeholder="Website (optional)"></p>
-                    <p class="validate responses-form__text" data-validate-required><textarea placeholder="Write your response..." rows="5" name="text"></textarea></p>
-                    <input type="text" name="image" class="hidden">
+                    <p class="validate validate--not-valid hide-logged-in" data-validate-required><input type="text" name="name" placeholder="Name"></p>
+                    <p class="validate validate--not-valid hide-logged-in" data-validate-required data-validate-email><input type="e-mail" name="email" placeholder="E-mail"></p>
+                    <p class="validate validate--valid hide-logged-in" data-validate-url><input type="text" name="website" placeholder="Website (optional)"></p>
+                    <p class="validate validate--not-valid responses-form__text" data-validate-required><textarea placeholder="Write your response..." rows="5" name="text"></textarea></p>
+                    <p class="hidden"><input type="text" name="image"></p>
                     <p><a href="#" class="btn btn--cta btn--small btn--disabled">Respond</a></p>
                 </div>
             </section>

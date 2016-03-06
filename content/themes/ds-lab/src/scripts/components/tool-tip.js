@@ -94,9 +94,11 @@ export default function() {
 	$toolTip.querySelector('.tool-tip__response').addEventListener('click', function(e) {
 		e.preventDefault();
 		var highlightedText = getSelectedText();
-		$responseText.value = `“${highlightedText}”
+		$responseText.value = `> ${highlightedText}
 
 `;
 		$responseText.focus();
+		$responseText.parentNode.classList.add('validate--valid');
+		$responseText.parentNode.classList.remove('validate--not-valid');
 	});
 }

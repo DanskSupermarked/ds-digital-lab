@@ -11,6 +11,7 @@ import userMetaTemplate from '../templates/response-meta';
 import responseTemplate from '../templates/response';
 import offsetTop from 'ds-assets/dom/get-document-offset-top';
 import liveValidation from '../lib/form/live-validation';
+import validateForm from '../lib/form/validate';
 
 // Cached dom elements
 var $responseForm;
@@ -21,6 +22,14 @@ var renderResponses;
 var addDeleteEvents;
 var setResponsesNumber;
 var addReadMoreEvent;
+
+var updateResponseCTA = function(valid) {
+	if (valid) {
+		$cta.classList.remove('btn--disabled');
+	} else {
+		$cta.classList.add('btn--disabled');
+	}
+};
 
 /**
  * Delete response when delete icon clicked
@@ -117,12 +126,11 @@ var renderMeta = function() {
 var submitResponse = function(e) {
 	e.preventDefault();
 
-	var loggedIn = document.querySelector('body').classList.contains('logged-in');
+	var loggedIn = document.querySelector('body').classList.contains('user-logged-in');
 
 	// If a field is not valid this field will get focus, so the user quickly can update the value.
 	var notValid = $validators.some(function($validator) {
-		if (!$validator.classList.contains('validate--valid')) {
-			$validator.classList.add('validate--not-valid');
+		if ($validator.classList.contains('validate--not-valid')) {
 			var $validateField = $validator.querySelector('input, textarea');
 			$validateField.focus();
 			return true;
@@ -139,20 +147,8 @@ var submitResponse = function(e) {
 		var name = $field.getAttribute('name');
 		if ($field.value) {
 			response[name] = $field.value;
-			if (!loggedIn || name === 'text') {
-				$field.value = '';
-			}
-
 		}
 	});
-
-	if (!loggedIn) {
-		$validators.forEach(function($validator) {
-			$validator.classList.remove('validate--valid');
-		});
-	} else {
-		document.querySelector('.responses-form__text').classList.remove('validate--valid');
-	}
 
 	$cta.innerHTML = 'Posting...';
 	$cta.classList.add('btn--disabled');
@@ -165,7 +161,22 @@ var submitResponse = function(e) {
 		var offset = offsetTop($lastResponse);
 		window.scrollTo(0, offset - (0.5 * window.innerHeight));
 
+		// Reset form
 		$cta.innerHTML = 'Respond';
+		if (loggedIn) {
+			var $text = $responseForm.querySelector('.responses-form__text');
+			$text.classList.add('validate--not-valid');
+			$text.classList.remove('validate--valid');
+			$text.querySelector('textarea').value = '';
+		} else {
+			$validators.forEach(function($validator) {
+				if ($validator.dataset.validateRequired !== undefined) {
+					$validator.classList.add('validate--not-valid');
+					$validator.classList.remove('validate--valid');
+				}
+				$validator.querySelector('input, textarea').value = '';
+			});
+		}
 	});
 
 };
@@ -222,7 +233,7 @@ var renderUserForm = function(user) {
 	$meta.innerHTML = html;
 	var $header = document.querySelector('.responses__form h3');
 
-	// Fill input fields with relevant data and hide them
+	// Fill input fields with relevant data
 	getAll('.responses__form input').forEach(function($input) {
 		var name = $input.getAttribute('name');
 		if (name === 'website') {
@@ -231,11 +242,13 @@ var renderUserForm = function(user) {
 			$input.value = user[name];
 		}
 		$input.parentNode.classList.add('validate--valid');
+		$input.parentNode.classList.remove('validate--not-valid');
 	});
 
 	// Insert after header
 	$header.parentNode.insertBefore($meta, $header.nextSibling);
 	lazyImages(1);
+	validateForm($validators, updateResponseCTA);
 };
 
 /**
@@ -255,13 +268,7 @@ export default function() {
 	$validators = getAll('.validate', $responseForm);
 
 	// Update from as user types
-	liveValidation($validators, function(valid) {
-		if (valid) {
-			$cta.classList.remove('btn--disabled');
-		} else {
-			$cta.classList.add('btn--disabled');
-		}
-	});
+	liveValidation($validators, updateResponseCTA);
 
 	// Render responses and like
 	renderMeta();
