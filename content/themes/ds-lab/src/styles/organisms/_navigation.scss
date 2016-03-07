@@ -18,7 +18,7 @@
   background-color: rgba($color-white, 0.98);
 }
 
-@media (min-width: 540px) {
+@media (min-width: 560px) {
   .nav--sticky {
     transform: translate3d(0, -3.5rem, 0);
   }
@@ -32,15 +32,18 @@
   transform: translate3d(0, 0, 0);
 }
 
-.nav__items--right {
-  text-align: right;
+.nav__items:last-child {
+  margin-top: 0.5em;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 560px) {
   .nav__items {
     float: left;
     width: auto;
-    text-align: left;
+  }
+
+  .nav__items:last-child {
+    margin-top: 0;
   }
 
   .nav__items--right {

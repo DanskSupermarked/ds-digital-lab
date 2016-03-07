@@ -3,10 +3,16 @@
  * This makes the use able to share/comment on the marked.
  */
 
+import validateForm from '../lib/form/validate';
+import getAll from 'ds-assets/dom/get-all';
+
 // Cached dom elements
 var $postContent;
 var $toolTip;
 var $twitter;
+var $responseForm;
+var $cta;
+
 
 /**
  * Get the text selected by the user
@@ -83,6 +89,9 @@ export default function() {
 		return;
 	}
 
+	$responseForm = document.querySelector('.responses__form');
+	$cta = $responseForm.querySelector('.btn--cta');
+
 	$twitter = $toolTip.querySelector('.tool-tip__twitter');
 
 	document.addEventListener('mouseup', placeToolTip);
@@ -100,5 +109,11 @@ export default function() {
 		$responseText.focus();
 		$responseText.parentNode.classList.add('validate--valid');
 		$responseText.parentNode.classList.remove('validate--not-valid');
+		var valid = validateForm(getAll('.validate', $responseForm));
+		if (valid) {
+			$cta.classList.remove('btn--disabled');
+		} else {
+			$cta.classList.add('btn--disabled');
+		}
 	});
 }
