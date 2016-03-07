@@ -1,0 +1,24 @@
+// ----------
+// Navigation
+// ----------
+
+.footer__share-bar--sticky {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  transition: transform 0.25s ease-out;
+  transform: translate3d(0, 3rem, 0);
+  border-top: 1px solid $color-grey-lighter;
+  background-color: rgba($color-white, 0.98);
+  > p {
+    @include center();
+  }
+}
+
+.footer__share-bar--sticky-active {
+  transform: translate3d(0, 0, 0);
+}

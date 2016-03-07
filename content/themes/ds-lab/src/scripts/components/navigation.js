@@ -6,6 +6,7 @@
 import scrollChange from 'ds-assets/scroll/scroll-change';
 import debounce from 'ds-assets/async/debounce';
 import getAll from 'ds-assets/dom/get-all';
+import hasScrolledPast from 'ds-assets/scroll/has-scrolled-past';
 import getUserData from '../lib/get-logged-in-data';
 
 export default function() {
@@ -22,12 +23,26 @@ export default function() {
   $stickyNav.classList.add('nav--sticky');
   $body.insertBefore($stickyNav, $body.firstChild);
 
+  var $footerShareBar = document.querySelector('.footer__share-bar');
+  var $stickyShareBar;
+  if ($footerShareBar) {
+    $stickyShareBar = $footerShareBar.cloneNode(true);
+    $stickyShareBar.classList.add('footer__share-bar--sticky');
+    $body.insertBefore($stickyShareBar, $body.firstChild);
+  }
+
   // Activate the sticky navigation when the user scrolls up.
   // This will firs take effect, when the user has scrolled "a screen" down.
   scrollChange(function() {
     $stickyNav.classList.remove('nav--active');
+    if ($stickyShareBar) {
+      $stickyShareBar.classList.remove('footer__share-bar--sticky-active');
+    }
   }, function() {
     $stickyNav.classList.add('nav--active');
+    if ($stickyShareBar) {
+      $stickyShareBar.classList.add('footer__share-bar--sticky-active');
+    }
   }, window.innerHeight);
 
   /**
@@ -41,6 +56,14 @@ export default function() {
       $stickyNav.classList.remove('nav--active');
     } else {
       $stickyNav.classList.remove('nav--hidden');
+    }
+    if ($stickyShareBar) {
+      var threshold = $footerShareBar.offsetHeight / window.innerHeight;
+      if (hasScrolledPast($footerShareBar, -1 * threshold)) {
+        $stickyShareBar.classList.add('hidden');
+      } else {
+        $stickyShareBar.classList.remove('hidden');
+      }
     }
   };
 
