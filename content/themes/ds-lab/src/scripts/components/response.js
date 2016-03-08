@@ -93,7 +93,9 @@ renderResponses = function(responses) {
  * @param {array} responses
  */
 setResponsesNumber = function(responses) {
-	document.querySelector('.share__responses').innerHTML = responses.length;
+	getAll('.share__responses').forEach(function($responses) {
+		$responses.innerHTML = responses.length;
+	});
 };
 
 /**
@@ -101,7 +103,9 @@ setResponsesNumber = function(responses) {
  * @param {number} likes
  */
 var setLikesNumber = function(likes) {
-	document.querySelector('.share__likes').innerHTML = likes;
+	getAll('.share__likes').forEach(function($likes) {
+		$likes.innerHTML = likes;
+	});
 };
 
 /**
@@ -190,9 +194,10 @@ var liked = function() {
 	$toolTipIcon.setAttribute('src', '/assets/images/heart--inverse--active.svg');
 	$toolTipIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
 
-	var $footerIcon = document.querySelector('.post-footer__like-icon');
-	$footerIcon.setAttribute('src', '/assets/images/heart--active.svg');
-	$footerIcon.setAttribute('data-src', '/assets/images/heart--active.svg');
+	getAll('.post-footer__like-icon').forEach(function($footerIcon) {
+		$footerIcon.setAttribute('src', '/assets/images/heart--active.svg');
+		$footerIcon.setAttribute('data-src', '/assets/images/heart--active.svg');
+	});
 
 	// Indicates, that the like button no longer is clickable
 	getAll('.share__like').forEach($like => $like.classList.add('disabled'));
