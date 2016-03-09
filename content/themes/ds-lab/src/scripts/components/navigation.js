@@ -56,6 +56,9 @@ export default function() {
     if (scrollPos <= 0) {
       $stickyNav.classList.add('nav--hidden');
       $stickyNav.classList.remove('nav--active');
+      if ($stickyShareBar) {
+        $stickyShareBar.classList.remove('footer__share-bar--sticky-active');
+      }
     } else {
       $stickyNav.classList.remove('nav--hidden');
     }
