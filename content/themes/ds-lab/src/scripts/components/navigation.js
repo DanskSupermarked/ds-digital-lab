@@ -39,11 +39,13 @@ export default function() {
       $stickyShareBar.classList.remove('footer__share-bar--sticky-active');
     }
   }, function() {
-    $stickyNav.classList.add('nav--active');
-    if ($stickyShareBar) {
-      $stickyShareBar.classList.add('footer__share-bar--sticky-active');
+    if (window.scrollY > window.innerHeight) {
+      $stickyNav.classList.add('nav--active');
+      if ($stickyShareBar) {
+        $stickyShareBar.classList.add('footer__share-bar--sticky-active');
+      }
     }
-  }, window.innerHeight);
+  });
 
   /**
    * Hide sticky navigation when scrolled to the top of the document

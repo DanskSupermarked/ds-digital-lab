@@ -69,7 +69,7 @@ var placeToolTip = function() {
 		}
 
 		// Change contextual actions
-		$twitter.setAttribute('href', `https://twitter.com/intent/tweet?text=${encodeURIComponent('"' + highlightedText + '" - ' + $twitter.dataset.url)}`);
+		$twitter.setAttribute('href', `https://twitter.com/intent/tweet?text=${encodeURIComponent(highlightedText)}&url=${encodeURIComponent($twitter.dataset.url)}`);
 
 		// Show and place tool tip
 		var scrollPosition = (window.scrollY || document.documentElement.scrollTop);
