@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="12px" height="21px" viewBox="0 0 12 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
-    <title>facebook--inverse</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-43.000000, -161.000000)" fill="#FFFFFF">
-            <path d="M54.1604022,161.151442 C53.8116396,161.100962 52.6103463,161 51.215296,161 C48.2960242,161 46.2938687,162.741587 46.2938687,165.934495 L46.2938687,168.685697 L43,168.685697 L43,172.421274 L46.2938687,172.421274 L46.2938687,182 L50.2465111,182 L50.2465111,172.421274 L53.5274627,172.421274 L54.0312309,168.685697 L50.2465111,168.685697 L50.2465111,166.300481 C50.2465111,165.227764 50.5436052,164.483173 52.1324124,164.483173 L54.1604022,164.483173 L54.1604022,161.151442 Z" id="facebook--inverse" sketch:type="MSShapeGroup"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="21"><title>facebook--inverse</title><desc>Created with Sketch.</desc><g fill="none"><g fill="#fff"><path d="M11.16.15C10.8.1 9.6 0 8.22 0 5.3 0 3.3 1.74 3.3 4.93V7.7H0v3.72h3.3V21h3.95v-9.58h3.28l.5-3.73H7.25V5.3c0-1.07.3-1.82 1.88-1.82h2.03V.15z"/></g></g></svg>
