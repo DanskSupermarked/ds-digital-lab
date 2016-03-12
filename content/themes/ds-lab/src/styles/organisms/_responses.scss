@@ -28,7 +28,7 @@
   }
   textarea {
     font-family: $font-family;
-    height: 6em;
+    height: 10em * $line-height-base;
     padding-top: 4px;
   }
 }
