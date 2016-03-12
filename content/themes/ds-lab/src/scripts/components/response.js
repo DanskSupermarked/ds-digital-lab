@@ -295,4 +295,20 @@ export default function() {
 		document.querySelector('.response-form__markdown-helpers').classList.remove('hidden');
 	});
 
+	getAll('.placeholder').forEach(function($placeholder) {
+		var $input = $placeholder.parentNode.querySelector('input, textarea');
+
+		$placeholder.addEventListener('click', function() {
+			$input.focus();
+		});
+
+		$input.addEventListener('input', function() {
+			if ($input.value === '') {
+				$placeholder.classList.remove('placeholder--not-empty');
+			} else {
+				$placeholder.classList.add('placeholder--not-empty');
+			}
+		});
+	});
+
 }

@@ -21,15 +21,15 @@
   textarea {
     font-size: $font-size-small;
     line-height: $line-height-base;
+    color: $color-black;
   }
   input {
     font-family: $font-family-heading;
-    color: $color-grey;
   }
   textarea {
     font-family: $font-family;
-    height: 6rem * $line-height-base;
-    color: $color-black;
+    height: 6em;
+    padding-top: 4px;
   }
 }
 

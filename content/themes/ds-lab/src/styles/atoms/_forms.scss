@@ -11,27 +11,18 @@ textarea {
   background: transparent;
 }
 
-::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: $color-grey-light;
+.placeholder {
+  color: $color-grey;
+  font-family: $font-family-heading;
+  font-size: $font-size-small;
+  position: absolute;
+  top: 3px;
 }
-:-moz-placeholder {
-  opacity: 1;
-  /* Mozilla Firefox 4 to 18 */
+
+.placeholder--not-empty {
   color: $color-grey-light;
-}
-::-moz-placeholder {
-  opacity: 1;
-  /* Mozilla Firefox 19+ */
-  color: $color-grey-light;
-}
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: $color-grey-light;
-}
-:placeholder-shown {
-  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
-  color: $color-grey-light;
+  font-size: $font-size-x-small;
+  top: -1em;
 }
 
 .validate {
@@ -44,37 +35,15 @@ textarea {
   bottom: 0;
   left: -1em;
   display: block;
-  width: 0.25rem;
+  width: 0;
   content: '';
+  transition: all 0.25s ease-out;
   @media (min-width: 650px) {
     left: -2em;
   }
 }
 
-.validate--valid:before {
-  background-color: rgba($color-succes, 0.5);
-}
-
 .validate--not-valid:before {
   background-color: rgba($color-alert, 0.25);
+  width: 0.5em;
 }
-
-/*.validate:after {
-  position: absolute;
-  top: 0;
-  right: -1em;
-  display: block;
-  width: 1em;
-  height: 1em * $line-height-base;
-  content: '';
-  background: no-repeat center center;
-  background-size: contain;
-}
-
-.validate--valid:after {
-  background-image: url(/assets/images/valid.svg);
-}
-
-.validate--not-valid:after {
-  background-image: url(/assets/images/not-valid.svg);
-}*/

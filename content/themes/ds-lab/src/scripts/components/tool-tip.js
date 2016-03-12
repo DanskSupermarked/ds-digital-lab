@@ -109,6 +109,7 @@ export default function() {
 		$responseText.focus();
 		$responseText.parentNode.classList.add('validate--valid');
 		$responseText.parentNode.classList.remove('validate--not-valid');
+		$responseText.parentNode.querySelector('.placeholder').classList.add('placeholder--not-empty');
 		var valid = validateForm(getAll('.validate', $responseForm));
 		if (valid) {
 			$cta.classList.remove('btn--disabled');
