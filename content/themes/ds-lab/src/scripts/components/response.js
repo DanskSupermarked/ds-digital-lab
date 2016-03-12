@@ -194,7 +194,7 @@ var liked = function() {
 	$toolTipIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
 
 	getAll('.post-footer__like-icon').forEach(function($footerIcon) {
-		$footerIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
+		$footerIcon.setAttribute('data-src', '/assets/images/heart--active.svg');
 	});
 
 	// Indicates, that the like button no longer is clickable
