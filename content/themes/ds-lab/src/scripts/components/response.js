@@ -191,16 +191,16 @@ var submitResponse = function(e) {
  */
 var liked = function() {
 	var $toolTipIcon = document.querySelector('.tool-tip__like-icon');
+	$toolTipIcon.setAttribute('src', '/assets/images/heart--inverse--active.svg');
 	$toolTipIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
 
 	getAll('.post-footer__like-icon').forEach(function($footerIcon) {
+		$footerIcon.setAttribute('src', '/assets/images/heart--active.svg');
 		$footerIcon.setAttribute('data-src', '/assets/images/heart--active.svg');
 	});
 
 	// Indicates, that the like button no longer is clickable
 	getAll('.share__like').forEach($like => $like.classList.add('disabled'));
-
-	lazyImages(1);
 };
 
 /**
