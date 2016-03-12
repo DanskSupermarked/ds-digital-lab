@@ -172,6 +172,7 @@ var submitResponse = function(e) {
 			$text.classList.add('validate--not-valid');
 			$text.classList.remove('validate--valid');
 			$text.querySelector('textarea').value = '';
+			$text.querySelector('.placeholder').classList.remove('placeholder--not-empty');
 		} else {
 			$validators.forEach(function($validator) {
 				if ($validator.dataset.validateRequired !== undefined) {
@@ -179,6 +180,7 @@ var submitResponse = function(e) {
 					$validator.classList.remove('validate--valid');
 				}
 				$validator.querySelector('input, textarea').value = '';
+				$validator.querySelector('.placeholder').classList.remove('placeholder--not-empty');
 			});
 		}
 	});
