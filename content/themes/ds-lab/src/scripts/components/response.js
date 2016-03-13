@@ -104,7 +104,11 @@ setResponsesNumber = function(responses) {
  */
 var setLikesNumber = function(likes) {
 	getAll('.share__likes').forEach(function($likes) {
-		$likes.innerHTML = likes;
+		if (likes) {
+			$likes.innerHTML = likes;
+		} else {
+			$likes.innerHTML = $likes.innerHTML + 1;
+		}
 	});
 };
 
@@ -197,8 +201,8 @@ var liked = function() {
 	$toolTipIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
 
 	getAll('.post-footer__like-icon').forEach(function($footerIcon) {
-		$footerIcon.setAttribute('src', '/assets/images/heart--active.svg');
-		$footerIcon.setAttribute('data-src', '/assets/images/heart--active.svg');
+		$footerIcon.setAttribute('src', '/assets/images/heart--inverse--active.svg');
+		$footerIcon.setAttribute('data-src', '/assets/images/heart--inverse--active.svg');
 	});
 
 	// Indicates, that the like button no longer is clickable
@@ -221,6 +225,7 @@ var attachLikeEvent = function($anchor) {
 
 		localStorage.setItem('like:' + window.postId, true);
 		liked();
+		setLikesNumber();
 
 		api.like().then(function(data) {
 			setLikesNumber(data.likes);
