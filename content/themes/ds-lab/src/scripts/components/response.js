@@ -106,8 +106,10 @@ var setLikesNumber = function(likes) {
 	getAll('.share__likes').forEach(function($likes) {
 		if (likes) {
 			$likes.innerHTML = likes;
+		} else if (isNaN($likes.innerHTML)) {
+			$likes.innerHTML = 1;
 		} else {
-			$likes.innerHTML = $likes.innerHTML + 1;
+			$likes.innerHTML = parseInt($likes.innerHTML) + 1;
 		}
 	});
 };
@@ -226,10 +228,7 @@ var attachLikeEvent = function($anchor) {
 		localStorage.setItem('like:' + window.postId, true);
 		liked();
 		setLikesNumber();
-
-		api.like().then(function(data) {
-			setLikesNumber(data.likes);
-		});
+		api.like();
 	});
 };
 
