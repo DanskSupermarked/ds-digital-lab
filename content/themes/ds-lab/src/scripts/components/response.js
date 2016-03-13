@@ -104,7 +104,7 @@ setResponsesNumber = function(responses) {
  */
 var setLikesNumber = function(likes) {
 	getAll('.share__likes').forEach(function($likes) {
-		if (likes) {
+		if (!isNaN(likes)) {
 			$likes.innerHTML = likes;
 		} else if (isNaN($likes.innerHTML)) {
 			$likes.innerHTML = 1;
