@@ -1,116 +1,118 @@
-<a href="https://github.com/TryGhost/Ghost"><img src="https://cloud.githubusercontent.com/assets/120485/6622822/c4c639fe-c8e7-11e4-9e64-5bec06c8b4c3.png" alt="Ghost" /></a>
-<a href="https://travis-ci.org/TryGhost/Ghost"><img align="right" src="https://travis-ci.org/TryGhost/Ghost.svg?branch=master" alt="Build status" /></a>
+![Perception of time;full-size](/content/images/2016/03/perception-of-speed-1.jpg)
 
-![Ghost Screenshot](https://cloud.githubusercontent.com/assets/120485/6626466/6dae46b2-c8ff-11e4-8c7c-8dd63b215f7b.jpg)
+# Perceived load time
 
-![Ghost is a simple, powerful publishing platform that allows you to share your stories with the world.](https://cloud.githubusercontent.com/assets/120485/6626501/b2bb072c-c8ff-11e4-8e1a-2e78e68fd5c3.png)
+To be able to create great load times for our websites we need to understand what load time is. In this article I will take a dive into the concept of time and how we as humans understand it. This will be used to give an understanding of how a websites load should be constructed.
 
-The project is maintained by a non-profit organisation called the **Ghost Foundation**, along with an amazing group of independent [contributors](https://github.com/TryGhost/Ghost/contributors). We're trying to make publishing software that changes the shape of online journalism.
+## Measured time
 
-- [Ghost.org](https://ghost.org)
-- [Latest Release](https://ghost.org/download/)
-- [Support](http://support.ghost.org/)
-- [Theme Docs](http://themes.ghost.org)
-- [Contributing Guide](https://github.com/TryGhost/Ghost/blob/master/CONTRIBUTING.md)
-- [Feature Requests](http://ideas.ghost.org/)
-- [Dev Blog](http://dev.ghost.org)
+Time is a complex subject and has been a major study in religion, philosophy, psychology and science. One definition of time is:
 
-**NOTE: If you’re stuck, can’t get something working or need some help, please head on over and join our [Slack community](https://ghost.org/slack/) rather than opening an issue.**
+> The measured or measurable period during which an action, process, or condition exists or continues
 
+So the measured time relates to some kind of action which has a **start marker** and an **end marker**. The difference between these two point are measured in seconds, minutes, hours etc.
 
-# Quick Start Install
+![Timeline, Usain Bolt running;full-size;ratio=1280:596](/content/images/2016/03/usain-bolt.jpg)
 
-Make sure you've installed Node.js - We recommend the latest **Node v0.10.x** release. For other versions [click here](http://support.ghost.org/supported-node-versions/). May contain nuts.
+<p class="img-caption">Mens 100 meter final, WC Berlin 2009</p>
 
-1. Download the [latest release](https://ghost.org/download/) of Ghost
-1. Unzip in the location you want to install
-1. Fire up a terminal
-1. `npm install --production`
-1. Start Ghost!
-    - Local environment: `npm start`
-    - On a server: `npm start --production`
-1. `http://localhost:2368/ghost` :tada:
+In the offline world time could be the 9.58 seconds it took Usain Bolt to react to the starting gun (start marker) and reach the finish line (end marker) 100 meters away.
 
-More [install docs](http://support.ghost.org/installation/) here in case you got stuck.
+In the online world the time it takes a website to load has historically been measured with the load time, which is the time it takes from activating a website by clicking on a link or browsing (start marker) till the website has finished all requests (end marker).
 
-<a name="getting-started"></a>
-# Developer Install (from git)
+Optimising this load time requires an understanding of the technologies involved on the Internet. When looking at improving load time, things like reducing the server response time, number of requests and the total payload is considered - all which are easily measured.
 
-Install Node.js. (See [Supported Node.js versions](http://support.ghost.org/supported-node-versions/))
+All [best practices](https://developers.google.com/speed/docs/insights/rules#speed-rules) in the strive for better load times have been tested and proven to reduce the time between the **start marker** and the **end marker**. Furthermore studies have shown that there is a direct correlation between load time and the user experience.
 
-```bash
-# Node v0.10.x - recommended
-# Node v0.12.x and v4.2+ LTS - supported
-#
-# Choose wisely
-```
+> Remember that time is money. **Benjamin Franklin**
 
-Clone :ghost:
+A study states that after 3 seconds 40% of your users will abandon the website. Wallmart conducted a test which clearly showed that 1  second improvement in load time related to a increase in conversion with 2%. Another large study on mobile e-commerce sites showed that a 1 second improvement in load time improved page views with 9.4%, bounce rate with 8.5%, conversion rate with 3.5% and cart size with 2.1%.
 
-```bash
-git clone git://github.com/tryghost/ghost.git
-cd ghost
-```
+Improving load time is a key improvement for user experience and is vital for e-commerce websites. For some time the load time benchmark on a cabled connection was set at 2 seconds, but recently Google have even suggested a [1 second benchmark](https://developers.google.com/speed/docs/insights/mobile#adapting-to-high-latency-mobile-networks) for mobile websites.
 
-Install grunt. No prizes here.
+Looking at some real numbers from the wild on a 5/1 Mbps connection shows that a 1 second load time budget is ambitious:
 
-```bash
-npm install -g grunt-cli
-```
+- google.com: **2.0s**
+- github.com: **3.6s**
+- ebay.com: **7.1s**
+- amazon.com: **8.5s**
 
-Install Ghost. If you're running locally, use [master](https://github.com/TryGhost/Ghost/tree/master). For production, use [stable](https://github.com/TryGhost/Ghost/tree/stable). :no_entry_sign::rocket::microscope:
+These numbers indicate that Amazon has a really slow website - in fact it is only barely faster that Usain Bolt running 100 meters. But wait, why is *the* biggest e-commerce website that slow? Clearly they must be aware that "time is money".
 
-```bash
-npm install
-```
+In fact they do, but they have understood that load time is not just a matter of time between the start and end marker, which we defined earlier as the load time. In fact Amazon are very close to the 1 second performance budget, but we will get back to this after we've taken a dive into how we as humans perceive time - and especially waiting time.
 
-Build the things!
+## Perceived time
 
-```bash
-grunt init
-```
+Performance is not about milliseconds, kilobytes and number of requests. In fact *no* user cares about these numbers (except me and a couple of other performance nerds). Performance is all about perception and the way the user experiences the load.
 
-Minify that shit for production?
+### The web is visually experienced
 
-```bash
-grunt prod
-```
+Most performance metrics are based on measured time, number of requests and kilobytes. But humans experience the web mostly through the eyes. Thus the customer do not care when all requests from the server has ended. What they experience is visual changes and for the user the website is experienced as fully loaded, when no more visual changes happen. In fact the websites is often perceived as ready, as soon as the information the user seeks is visible.
 
-Start your engines.
+To have a better understanding of how our users perceive the load time, we have to look at the visual loading progression - not the scientific numbers.
 
-```bash
-npm start
+![Waiting is boring;full-size](/content/images/2016/03/waiting.jpg)
 
-## running production? Add --production
-```
+### Waiting time
 
-Congrats! You made it. BTW you can also just `npm install ghost` if you're into that sort of thing. NPM aficionados can also read up on using [Ghost as an NPM module](https://github.com/TryGhost/Ghost/wiki/Using-Ghost-as-an-npm-module).
+When speaking of the load time, it is a waiting time. The user has made an action, because she wants some information and are just waiting for the reaction. This is like taking an elevator: You have decided to go to another floor and are just standing in the elevator waiting for it to get there.
 
-More general [install docs](http://support.ghost.org/installation/) here in case you got stuck.
+In fact waiting in the real world relates to waiting for a website to load, and we can learn a lot from the physical world.
 
+Boston Airport experienced problems with waiting time at first hand. They received many complaints from their passangers, because they were frustrated about the waiting time for their luggage. The management in the airport decided to do something about this wait time. They improved the technology, the infrastructure and hired more people. They significantly reduced the time it took from an airplane had landed till the luggage was ready to be picked up by the customers. They even became one of the fastest in the United States. Happy about their improvements the management was surprised that they still received many complaints.
 
-# Deploying Ghost
+![Boston graphics, 1:7;ratio=756:400](/content/images/2016/03/boston-long-passive-wait-1.jpg)
 
-![Ghost(Pro) + DigitalOcean](https://cloud.githubusercontent.com/assets/120485/8180331/d6674e32-1414-11e5-8ce4-2250e9994906.png)
+They did some analysis on the wait time, which showed that on average it took the luggage 8 minutes to arrive. It took the passanger 1 minute to walk to the luggage pick-up, which left them 7 minutes of wait. Knowing that they could not improve the time between the **start marker** and the **end marker**, they took a different approach. They decided to use a luggage pick-up further away from the airplane. It actually increased the *measured time* to 9 minutes, but now it took the passengers 7 minutes of walk, which only left 2 minutes of wait. Even though the total wait time had increased they no longer received a single complaint.
 
-Save yourself time and headaches with our fully managed **[Ghost(Pro)](https://ghost.org/pricing/)** service. Deploy a new instance of Ghost in a couple of clicks running on [DigitalOcean](https://digitalocean.com)’s rock solid infrastructure, with a worldwide CDN thrown in at no extra charge.
+![Boston graphics, 7:2;ratio=756:400](/content/images/2016/03/boston-short-passive-wait-1.jpg)
 
-All revenue from **Ghost(Pro)** goes to the Ghost Foundation, the non-profit org which funds the maintenance and further development of Ghost.
+Why did this work? Waiting time can be split into a passive and active waiting time. In passive waiting time you do not have any control of time. In active time you are doing something physical or mental.
 
-[Other options](http://support.ghost.org/deploying-ghost/) are also available if you prefer playing around with servers by yourself.
+The active phase tends to be perceived shorter because you occupy your brain. Studies suggest that on average people estimate passive waiting time to be 36% longer that active. Actually the wait time we refer to as humans often only relates to the passive wait, whereas the active wait seldom is even considered a wait.
 
+## Measuring the perceived load time on websites
 
-# Staying Up to Date
+By now we know that the load time on the Internet is perceived visually and that active wait is experienced shorter. Based on this knowledge we can revisit the load time of Amazon, which actually has a fast website, when we look at perceived load time.
 
-When a new version of Ghost comes out, you'll want to look over these [upgrade instructions](http://support.ghost.org/how-to-upgrade/) for what to do next.
+![Amazon load filmstrip;ratio=756:706](/content/images/2016/03/amazon-filmstrip-1.png)
 
-You can talk to other Ghost users and developers in our [public Slack team](https://ghost.org/slack/) (it's pretty awesome). We have a public meeting every Tuesday at 5:30pm UK time.
+<p class="img-caption"><a href="http://www.webpagetest.org/video/compare.php?tests=160308_MD_4c7311dd535bf1779593cb68a8d48fe8-r%3A8-c%3A0&thumbSize=200&ival=100&end=visual">WebPagetest</a> on a Amazon product page</p>
 
-New releases are announced on the [dev blog](http://dev.ghost.org/tag/releases/). You can subscribe by email or follow [@TryGhost_Dev](https://twitter.com/tryghost_dev) on Twitter, if you prefer your updates bite-sized and facetious.
+The measured load time for this webpage is **8.5 seconds**, but as the visual progression shows, the website is visually complete within **1.6 seconds**. If we look closer at the visual progression, the information which the user is most likely looking for, is actually visually ready already after **1.2 seconds**. The huge difference between load time and visual ready has to do with the way Amazon prioritises the content on their website. They know that the visual progression is what the customer experiences. They have structured their website to ship the visual content as fast a possible. After the visual content has been shipped, they will start loading everything else in the background like tracking scripts, interaction with javascript, images further down the page etc.
 
-:saxophone::turtle:
+Furthermore they know, that the active wait time will be perceived as shorter than the passive. They deliberately ship the first visual change as fast as possible, which is within **0.9 seconds**. As soon as there are some visuals on the screen, the human brain begins to process it and thus kicks into the active wait phase.
 
+Ét voila, what previously looked like a darn slow website, with a load time of 8.5 seconds, now is reduced to a mere 0.9 seconds of perceived waiting time.
 
-# Copyright & License
+### Not optimised for the perceived load time
 
-Copyright (c) 2013-2016 Ghost Foundation - Released under the [MIT license](LICENSE).
+Let us look at another example of an e-commerce website, with a measured load time of **7.4 seconds**, which is faster than Amazon:
+
+![borders;ratio=758:921](/content/images/2016/03/foetex-filmstrip.png)
+
+<p class="img-caption">Some frames have been removed to make the image smaller. See the full <a href="/content/images/2016/03/filmstrip.png">timeline</a></p>
+
+If we look at the numbers from WebPagetest the first visual change happens at **1.9** seconds. You have to look very close to actually see the visual change: The default white background is changed with a light grey background :-). Though it is a visual change there is really nothing for the user to process and it will still be a passive wait.
+
+At **3.2 seconds** the first actual visual change is happening, but again this change doesn't add any value for the user. There is nothing to read and no image to look at - even the logo is not visible. Remember that approximately 40% of the users have abandoned a website after 3 seconds of wait time.
+
+At **3.9 seconds** the first usable visual change is happening and the passive wait is over. We even get a big fancy woody background image. But it is not until **6.2 seconds** we get the image of the actual product we have searched for.
+
+## Performance is a feature
+
+For the above example the perceived load time isn't really that great, but you know what, it is fixable.
+
+Performance is not a technical problem though. We know how to make websites fast. Or rather we know what makes websites slow, as by default the web is fast.
+
+We are in a position where we know what to do to make nearly any website really damn fast. People have worked tirelessly to solve the problems of web performance and there are many good guides and tools to improve both measured and perceived load time.
+
+But websites are still slow. Why?
+
+The problem is that performance is a feature which is commonly overlooked. As described earlier load times correlates directly to typical e-commerce KPIs as conversion rate, basket size and page views.
+
+Performance isn’t a technical dept, but an opportunity to grow your audience, to grow your business or to convert more sales. Performance is an opportunity, and a risk, the same way that a redesigned template is, a new logo or a change to the navigation.
+
+Perceived load time is a feature which needs attention. Nursed well and it will benefit your customers and your business.
+
+<p class="img-caption" style="margin-top: 2em">Credits:<br>This is heavily inspired by the great 3 part write up on <a href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/">Why performance matters</a> by Denys Mishunov. Peter Chamberlin thoughts around <a href="https://peterchamberlin.com/fast.php">Performance is a feature</a> have also almost been copied.</p>
