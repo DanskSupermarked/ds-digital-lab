@@ -1,18 +1,18 @@
 export default function(author) {
 
-	var authorImage = '';
-	if (author.image) {
-		authorImage = `<td width="5%"><img src="${author.image}" class="author__image round-img"></td>`;
-	}
+  var authorImage = '';
+  if (author.image) {
+    authorImage = `<td width="5%"><img src="${author.image}" class="author__image round-img"></td>`;
+  }
 
-	var coverImage = '';
-	if (author.cover) {
-		coverImage = `
+  var coverImage = '';
+  if (author.cover) {
+    coverImage = `
 <img data-src="${author.cover}" class="lazy-image full-width img-full-width" alt="${author.name}" >
 `;
-	}
+  }
 
-	return `
+  return `
 <article class="boxes__item small animate animate__fade-in">
   <header class="author">
       <table>
@@ -26,7 +26,7 @@ export default function(author) {
   </header>
   ${coverImage}
   <p>${author.bio || ''}</p>
-  <p><a href="/author/${author.slug}/" class="btn">Stories by author</a></p>
+  <p><a href="/author/${author.slug}/" class="btn">See stories by author</a></p>
  < /article>
 `;
 }

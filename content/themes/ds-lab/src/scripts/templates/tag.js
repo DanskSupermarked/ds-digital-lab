@@ -22,7 +22,7 @@ export default function(tag) {
   </header>
   ${coverImage}
   <p>${tag.description || ''}</p>
-  <p><a href="/tag/${tag.slug}/" class="btn">Stories in category</a></p>
+  <p><a href="/tag/${tag.slug}/" class="btn">See stories in category</a></p>
  < /article>
 `;
 }
