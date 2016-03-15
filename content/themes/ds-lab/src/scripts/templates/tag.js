@@ -15,14 +15,14 @@ export default function(tag) {
       <table>
           <tr>
               <td><span class="author__name"><a href="/tag/${tag.slug}">${tag.name}</a></span><br>
-              	${tag.count.posts} articles
+              	${tag.count.posts} stories
               </td>
           </tr>
       </table>
   </header>
   ${coverImage}
   <p>${tag.description || ''}</p>
-  <p><a href="/tag/${tag.slug}/" class="btn">Articles in category</a></p>
-</article>
+  <p><a href="/tag/${tag.slug}/" class="btn">Stories in category</a></p>
+ < /article>
 `;
 }

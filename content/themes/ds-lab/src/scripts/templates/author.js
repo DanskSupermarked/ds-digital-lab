@@ -19,14 +19,14 @@ export default function(author) {
           <tr>
               ${authorImage}
               <td><span class="author__name"><a href="/author/${author.slug}">${author.name}</a></span><br>
-              	${author.count.posts} articles
+              	${author.count.posts} stories
               </td>
           </tr>
       </table>
   </header>
   ${coverImage}
   <p>${author.bio || ''}</p>
-  <p><a href="/author/${author.slug}/" class="btn">Articles by author</a></p>
-</article>
+  <p><a href="/author/${author.slug}/" class="btn">Stories by author</a></p>
+ < /article>
 `;
 }

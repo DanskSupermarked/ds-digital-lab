@@ -68,7 +68,7 @@ window.authorName = '{{author.name}}';
                       <span class="author__name"><a href="/author/{{author.slug}}">{{author.name}}</a></span><br>
                       {{#if author.bio}}{{author.bio}}<br>{{/if}}
                       <br>
-                      <a href="/author/{{author.slug}}" class="btn btn--cta">More articles</a>{{#if author.website}}<a href="{{author.website}}" target="_blank" class="btn margin-left">Website</a>{{/if}}
+                      <a href="/author/{{author.slug}}" class="btn btn--cta">More stories</a>{{#if author.website}}<a href="{{author.website}}" target="_blank" class="btn margin-left">Website</a>{{/if}}
                     </td>
                   </tr>
                 </table>
@@ -137,7 +137,7 @@ window.authorName = '{{author.name}}';
     </a><a href="#write-response" title="Comment on the selected text" class="tool-tip__response">
         <img data-src="{{asset "/images/comment--inverse.svg"}}" class="lazy-image">
     </a><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share this article on facebook">
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share this story on facebook">
         <img data-src="{{asset "/images/facebook--inverse.svg"}}" class="lazy-image">
     </a><a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet about the highlighted text" class="tool-tip__twitter" data-title="{{encode title}}" data-url="{{url absolute="true"}}">
