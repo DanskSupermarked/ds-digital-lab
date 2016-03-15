@@ -14,12 +14,15 @@
             </tr>
         </table>
     </header>
-    {{#to_first_paragraph}}
-        {{#convert_images}}
-            {{content}}
-        {{/convert_images}}
-    {{/to_first_paragraph}}
-    <p><a href="{{url}}" class="btn">Read story</a></p>
+    <a href="{{url}}" style="display:block; text-decoration:none">
+        {{#to_first_paragraph}}
+
+            {{#convert_images}}
+                {{content}}
+            {{/convert_images}}
+        {{/to_first_paragraph}}
+    </a>
+    <p><a href="{{url}}">Read more...</a></p>
 </article>
 {{/foreach}}
 

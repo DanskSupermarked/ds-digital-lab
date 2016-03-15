@@ -20,9 +20,9 @@ export default function(tag) {
           </tr>
       </table>
   </header>
-  ${coverImage}
+  <a href="/tag/${tag.slug}/" style="display:block;text-decoration:none">${coverImage}</a>
   <p>${tag.description || ''}</p>
-  <p><a href="/tag/${tag.slug}/" class="btn">See stories in category</a></p>
- < /article>
+  <p><a href="/tag/${tag.slug}/">See stories in category...</a></p>
+ </article>
 `;
 }
