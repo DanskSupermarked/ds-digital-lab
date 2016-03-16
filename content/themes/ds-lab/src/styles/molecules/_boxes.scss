@@ -12,11 +12,14 @@
 .boxes__item {
   @include center();
 
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background-color: $color-white;
+  border-radius: 0.25em;
+  border: 1px solid rgba($color-grey-light, 0.5);
+
   > :first-child {
     margin-top: 0;
   }
@@ -37,8 +40,8 @@
     margin: 0;
   }
   @media (min-width: 650px) {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     & > *, & > a > * {
       margin-right: 2rem;
       margin-left: 2rem;
@@ -50,6 +53,7 @@
   padding-top: 0;
   padding-bottom: 0;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .boxes__item--no-margin-top {
