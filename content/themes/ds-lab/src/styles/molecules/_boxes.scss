@@ -23,18 +23,23 @@
   > :last-child {
     margin-bottom: 0;
   }
-  & > * {
+  & > *, & > a > * {
     margin-right: 1rem;
     margin-left: 1rem;
   }
-  & > .full-width {
+  & > a {
+    margin: 0;
+    display:block;
+    text-decoration:none
+  }
+  & > .full-width, & > a > .full-width {
     max-width: none;
     margin: 0;
   }
   @media (min-width: 650px) {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    & > * {
+    & > *, & > a > * {
       margin-right: 2rem;
       margin-left: 2rem;
     }

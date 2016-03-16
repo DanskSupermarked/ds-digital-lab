@@ -24,7 +24,7 @@ export default function(author) {
           </tr>
       </table>
   </header>
-  <a href="/author/${author.slug}/" style="display:block;text-decoration:none">${coverImage}</a>
+  <a href="/author/${author.slug}/">${coverImage}</a>
   <p>${author.bio || ''}</p>
   <p><a href="/author/${author.slug}/" class="dimmed">See stories by author...</a></p>
  </article>

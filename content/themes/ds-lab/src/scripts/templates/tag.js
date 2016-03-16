@@ -20,7 +20,7 @@ export default function(tag) {
           </tr>
       </table>
   </header>
-  <a href="/tag/${tag.slug}/" style="display:block;text-decoration:none">${coverImage}</a>
+  <a href="/tag/${tag.slug}/">${coverImage}</a>
   <p>${tag.description || ''}</p>
   <p><a href="/tag/${tag.slug}/" class="dimmed">See stories in category...</a></p>
  </article>
