@@ -17,3 +17,12 @@
 a.disabled {
   cursor: default;
 }
+
+a.dimmed {
+  color: $color-grey;
+  transition: color 0.25s ease-out;
+
+  &:hover {
+    color: $color-black;
+  }
+}

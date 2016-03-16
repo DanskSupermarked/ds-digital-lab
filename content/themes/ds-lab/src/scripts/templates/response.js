@@ -23,7 +23,7 @@ export default function(response) {
   if (response.excerpt) {
     readMore = `
 <div class="response__text hidden">${response.html}</div>
-<p><a href="#" class="btn response__read-more">Read more</a></p>
+<p><a href="#" class="response__read-more dimmed">Read more...</a></p>
 `;
   }
 

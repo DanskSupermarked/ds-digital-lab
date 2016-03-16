@@ -35,7 +35,7 @@ export default function(post) {
       </table>
   </header>
   <a href="/${post.slug}/" style="display:block;text-decoration:none">${excerpt}</a>
-  <p><a href="/${post.slug}/">Read more...</a></p>
+  <p><a href="/${post.slug}/" class="dimmed">Read more...</a></p>
 </article>
 `;
 }
