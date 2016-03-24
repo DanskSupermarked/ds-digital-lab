@@ -1,8 +1,8 @@
 .responses {
   margin-top: 3rem;
   blockquote {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
   }
 }
 
@@ -10,7 +10,8 @@
   position: relative;
 }
 
-.response__text, .response__excerpt {
+.response__text,
+.response__excerpt {
   img {
     max-width: 100%;
   }
@@ -36,11 +37,11 @@
 .response__delete {
   position: absolute;
   top: 1rem;
-  right: 1rem;
-  display: none;
+  right: 0;
+  display: none !important;
   .author-logged-in .response:hover &,
   .admin-logged-in .response:hover & {
-    display: block;
+    display: block !important;
   }
 }
 
