@@ -1,7 +1,5 @@
 export default function(tag) {
 
-  console.log(tag);
-
   var coverImage = '';
   if (tag.image) {
     coverImage = `
