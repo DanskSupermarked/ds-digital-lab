@@ -15,8 +15,15 @@
         </table>
     </header>
     <a href="{{url}}">
+        {{#if image}}
+            <div class="img-wrapper full-width">
+                <div class="img-container" style="padding-bottom:50%">
+                    <img data-src="{{image}}" alt="{{title}}" class="lazy-image animate animate--fast animate__fade-in">
+                </div>
+            </div>
+        {{/if}}
+        <h1>{{title}}</h1>
         {{#to_first_paragraph}}
-
             {{#convert_images}}
                 {{content}}
             {{/convert_images}}

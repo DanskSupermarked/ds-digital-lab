@@ -11,7 +11,7 @@ module.exports = function(raw) {
 		var alt = $img.getAttribute('alt');
 		var padding = 50;
 
-		// Lazy load all but the first image
+		// Lazy load
 		var $newImg = $imgWrapper.querySelector('img');
 
 		$newImg.setAttribute('data-src', src);

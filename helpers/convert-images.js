@@ -11,12 +11,8 @@ module.exports = function(options) {
         var alt = $img.attr('alt');
         var padding = 50;
 
-        // Lazy load all but the first image
-        if (i > 0) {
-            $newImg('img').attr('data-src', src).addClass('lazy-image animate animate--fast animate__fade-in');
-        } else {
-            $newImg('img').attr('src', src);
-        }
+        // Lazy load
+        $newImg('img').attr('data-src', src).addClass('lazy-image animate animate--fast animate__fade-in');
 
         alt.split(';').forEach(function(str) {
             if (str === 'full-size' || str === 'full-width') {
