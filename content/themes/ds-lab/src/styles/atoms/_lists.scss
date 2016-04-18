@@ -8,6 +8,13 @@ ol {
   padding-left: 2em;
 }
 
+li {
+  padding-bottom: 1em;
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
 .list--unstyled {
   padding-left: 0;
   list-style: none;
