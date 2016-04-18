@@ -23,7 +23,7 @@
     "test": "grunt validate --verbose"
   },
   "engines": {
-    "node": "~0.10.0 || ~0.12.0 || ^4.2.0"
+    "node": "4.3.2"
   },
   "dependencies": {
     "bcryptjs": "2.3.0",
@@ -63,10 +63,10 @@
     "semver": "5.1.0",
     "showdown-ghost": "0.3.6",
     "sqlite3": "3.1.1",
-    "striptags": "^2.1.1",
+    "striptags": "2.1.1",
     "unidecode": "0.1.8",
     "validator": "4.5.0",
-    "word-count": "^0.2.2",
+    "word-count": "0.2.2",
     "xml": "1.0.1"
   },
   "optionalDependencies": {
