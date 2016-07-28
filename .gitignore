@@ -1,4 +1,4 @@
-/content/data/**.db
+/content/data/**
 /content/images/**.jpg
 /content/images/**.png
 /content/images/**.jpeg
