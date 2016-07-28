@@ -11,13 +11,13 @@ var path = require('path'),
     loader;
 
 function isInternalApp(name) {
-    return _.contains(config.internalApps, name);
+    return _.includes(config.internalApps, name);
 }
 
 // Get the full path to an app by name
 function getAppAbsolutePath(name) {
     if (isInternalApp(name)) {
-        return path.join(config.paths.corePath, '/server/apps/', name);
+        return path.join(config.paths.internalAppPath, name);
     }
 
     return path.join(config.paths.appPath, name);
@@ -49,7 +49,8 @@ function getAppByName(name, permissions) {
     var AppClass = loadApp(getAppRelativePath(name), isInternalApp(name)),
         appProxy = new AppProxy({
             name: name,
-            permissions: permissions
+            permissions: permissions,
+            internal: isInternalApp(name)
         }),
         app;
 
