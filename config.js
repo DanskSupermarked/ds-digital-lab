@@ -31,11 +31,11 @@ var config = {
             },
             debug: false
         },
-
         server: {
             host: '127.0.0.1',
             port: process.env.PORT
-        }
+        },
+        preloadHeaders: 100,
     },
 
     // ### Development **(default)**
@@ -80,7 +80,8 @@ var config = {
         // Specify where your content directory lives
         paths: {
             contentPath: path.join(__dirname, '/content/')
-        }
+        },
+        preloadHeaders: 100,
     }
 };
 
