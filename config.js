@@ -42,7 +42,7 @@ var config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: 'http://localhost:2368',
+        url: 'http://localhost:3000',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -74,7 +74,7 @@ var config = {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
+            port: '3000'
         },
         // #### Paths
         // Specify where your content directory lives
