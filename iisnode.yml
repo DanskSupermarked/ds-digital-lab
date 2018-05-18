@@ -1,1 +1,2 @@
 enableXFF: true
+nodeProcessCommandLine: "D:\home\site\wwwroot\node.exe"
