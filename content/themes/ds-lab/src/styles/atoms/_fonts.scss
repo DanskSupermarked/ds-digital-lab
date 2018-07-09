@@ -8,8 +8,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Futura LT W01 Book'),
-       url("/fonts/8bf38806-3423-4080-b38f-d08542f7e4ac.woff2") format("woff2"),
-       url("/fonts/e2b9cbeb-fa8e-41cd-8a6a-46044b29ba52.woff") format("woff");
+       url("/assets/fonts/8bf38806-3423-4080-b38f-d08542f7e4ac.woff2") format("woff2"),
+       url("/assets/fonts/e2b9cbeb-fa8e-41cd-8a6a-46044b29ba52.woff") format("woff");
 }
 @font-face{
   font-family:"Futura";
@@ -17,6 +17,6 @@
   font-weight: 700;
   font-display: swap;
   src: local('Futura LT W01 Bold'),
-       url("/fonts/3cf9e1e8-63a2-497f-86ed-6b63d6de1986.woff2") format("woff2"),
-       url("/fonts/184895ac-545b-450b-9d3a-c0a0a7620977.woff") format("woff");
+       url("/assets/fonts/3cf9e1e8-63a2-497f-86ed-6b63d6de1986.woff2") format("woff2"),
+       url("/assets/fonts/184895ac-545b-450b-9d3a-c0a0a7620977.woff") format("woff");
 }
