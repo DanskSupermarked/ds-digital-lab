@@ -78,14 +78,14 @@
     color: $color-black;
   }
   @media (min-width: 360px) {
-    padding-left: 1.5em;
+    padding-left: 200px;
     &:before {
       position: absolute;
-      bottom: 0.5 * (1.25em - $font-size-h3);
+      bottom: 0;
       left: 0;
       display: block;
-      width: $font-size-h3;
-      height: 1.5 * $font-size-h3;
+      width: 200px;
+      height: 35px;
       content: '';
       background: url(/assets/images/s-group_logo.svg) no-repeat center center;
       background-size: contain;

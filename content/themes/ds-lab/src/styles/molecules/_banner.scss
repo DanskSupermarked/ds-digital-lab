@@ -1,16 +1,16 @@
 .banner {
   font-family: $font-family-heading;
   padding-top: 3em;
-  padding-bottom: 7em;
+  padding-bottom: 5em;
   text-align: center;
   color: $color-white;
   background: $color-secondary url('/assets/images/salling-group-short-logo.svg') no-repeat center center;
   background-size: 50%;
   @media (min-width: 500px) {
-    padding-bottom: 10em;
+    padding-bottom: 7em;
   }
   @media (min-width: 900px) {
-    padding-bottom: 15em;
+    padding-bottom: 9em;
   }
   small {
     color: $color-grey;
