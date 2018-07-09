@@ -329,7 +329,7 @@ li {
   padding-bottom: 7em;
   text-align: center;
   color: #fff;
-  background: #143241 url("/assets/images/lab.svg") no-repeat center bottom;
+  background: #004a62 url("/assets/images/salling-group-short-logo.svg") no-repeat center bottom;
   background-size: contain; }
   @media (min-width: 500px) {
     .banner {
@@ -610,7 +610,7 @@ li {
         width: 1.1667em;
         height: 1.75em;
         content: '';
-        background: url(/assets/images/icon.svg) no-repeat center center;
+        background: url(/assets/images/s-group_logo.svg) no-repeat center center;
         background-size: contain; } }
 
 .responses {
