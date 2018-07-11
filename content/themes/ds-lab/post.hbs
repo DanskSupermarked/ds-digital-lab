@@ -52,14 +52,21 @@ window.authorName = '{{author.name}}';
                 <p>
                     <a href="#" class="share__like">
                         <img data-src="{{asset "/images/heart--active.svg"}}" class="post-footer__like-icon lazy-image"> <span class="share__likes"></span>
-                    </a><a href="#responses">
+                    </a>
+                    <a href="#responses">
                         <img data-src="{{asset "/images/comment.svg"}}" class="lazy-image"> <span class="share__responses"></span>
-                    </a><a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
                         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="right">
                         <img data-src="{{asset "/images/twitter.svg"}}" class="lazy-image">
-                    </a><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
                         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="right">
                         <img data-src="{{asset "/images/facebook.svg"}}" class="lazy-image">
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'linkedin-share', 'width=850,height=735');return false;" title="Share this story on LinkedIn" class="right">
+                        <img data-src="{{asset "/images/linkedin.svg"}}" class="lazy-image">
                     </a>
                 </p>
             </section>
@@ -142,14 +149,21 @@ window.authorName = '{{author.name}}';
 <div class="tool-tip share">
     <a href="#" title="Let the author know, that you liked this" class="share__like">
         <img data-src="{{asset "/images/heart--inverse.svg"}}" class="tool-tip__like-icon lazy-image">
-    </a><a href="#write-response" title="Comment on the selected text" class="tool-tip__response">
+    </a>
+    <a href="#write-response" title="Comment on the selected text" class="tool-tip__response">
         <img data-src="{{asset "/images/comment--inverse.svg"}}" class="lazy-image">
-    </a><a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share this story on facebook">
         <img data-src="{{asset "/images/facebook--inverse.svg"}}" class="lazy-image">
-    </a><a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
+    </a>
+    <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet about the highlighted text" class="tool-tip__twitter" data-title="{{encode title}}" data-url="{{url absolute="true"}}">
         <img data-src="{{asset "/images/twitter--inverse.svg"}}" class="lazy-image">
+    </a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{url absolute="true"}}"
+        onclick="window.open(this.href, 'linkedin-share', 'width=850,height=735');return false;" title="Share this story on LinkedIn" class="tool-tip__linkedin">
+        <img data-src="{{asset "/images/linkedin.svg"}}" class="lazy-image">
     </a>
 </div>
 
