@@ -54,7 +54,7 @@
     "jsonpath": "0.2.7",
     "knex": "0.12.2",
     "lodash": "4.16.0",
-    "moment": "2.15.1",
+    "moment": "^2.22.2",
     "moment-timezone": "0.5.5",
     "morgan": "1.7.0",
     "multer": "1.2.0",
