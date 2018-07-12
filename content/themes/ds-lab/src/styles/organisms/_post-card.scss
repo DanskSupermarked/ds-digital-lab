@@ -1,0 +1,750 @@
+/* 6. Post Feed
+/* ---------------------------------------------------------- */
+
+.post-feed {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+  padding: 40px 0 0 0;
+}
+
+.post-card {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 20px 40px;
+  min-height: 300px;
+  background: #fff center center;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: rgba(39,44,49,0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+  transition: all 0.5s ease;
+}
+
+.post-card:hover {
+  box-shadow: rgba(39,44,49,0.07) 8px 28px 50px, rgba(39, 44, 49, 0.04) 1px 6px 12px;
+  transition: all 0.4s ease;
+  transform: translate3D(0, -1px, 0) scale(1.02);
+}
+
+.post-card-image-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+.post-card-image {
+  width: auto;
+  height: 200px;
+  background-size: cover;
+}
+
+.post-card-content-link {
+  position: relative;
+  flex-grow: 1;
+  display: block;
+  padding: 10px 25px 0;
+  text-decoration: none;
+}
+
+.post-card-content-link:hover {
+  text-decoration: none;
+}
+
+.post-card-tags {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .5rem;
+  line-height: 1.15em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0 20px 10px 20px;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+.post-card-author {
+  padding: 0 20px;
+  font-size: .8rem;
+}
+
+.post-card-header {
+  font-size: .7rem;
+  color: $color-grey;
+
+  h2 {
+    color: $color-secondary;
+  }
+}
+
+.post-card-title {
+  margin-top: 0;
+}
+
+.post-card-content {
+  padding-top: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card-excerpt {
+  font-family: Georgia, serif;
+}
+
+.post-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 25px 25px;
+}
+
+.author-profile-image,
+.avatar-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+
+  object-fit: cover;
+}
+
+.post-card-meta .profile-image-wrapper,
+.post-card-meta .avatar-wrapper {
+  position: relative;
+}
+
+.author-list {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.author-list-item {
+  position: relative;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.author-list-item:nth-child(1) {
+  z-index: 10;
+}
+.author-list-item:nth-child(2) {
+  z-index: 9;
+}
+.author-list-item:nth-child(3) {
+  z-index: 8;
+}
+.author-list-item:nth-child(4) {
+  z-index: 7;
+}
+.author-list-item:nth-child(5) {
+  z-index: 6;
+}
+.author-list-item:nth-child(6) {
+  z-index: 5;
+}
+.author-list-item:nth-child(7) {
+  z-index: 4;
+}
+.author-list-item:nth-child(8) {
+  z-index: 3;
+}
+.author-list-item:nth-child(9) {
+  z-index: 2;
+}
+.author-list-item:nth-child(10) {
+  z-index: 1;
+}
+
+.static-avatar {
+  display: block;
+  overflow: hidden;
+  margin: 0 -5px;
+  width: 34px;
+  height: 34px;
+  border: #fff 2px solid;
+  border-radius: 100%;
+}
+
+.moving-avatar {
+  display: block;
+  overflow: hidden;
+  margin: 0 -6px;
+  width: 56px;
+  height: 56px;
+  border: #fff 2px solid;
+  border-radius: 100%;
+  transition: all 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99) 0.7s;
+}
+
+@media (min-width: 800px) {
+  .author-list:hover .moving-avatar {
+      margin: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  }
+}
+
+.author-name-tooltip {
+  position: absolute;
+  bottom: 105%;
+  z-index: 999;
+  display: block;
+  padding: 2px 8px;
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  border-radius: 3px;
+  box-shadow: rgba(39,44,49,0.08) 0 12px 26px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+.author-list-item:hover .author-name-tooltip {
+  opacity: 1.0;
+  transform: translateY(0px);
+}
+
+@media (max-width: 650px) {
+  .author-name-tooltip {
+      display: none;
+  }
+}
+
+.reading-time {
+  flex-shrink: 0;
+  margin-left: 20px;
+  font-size: 1.2rem;
+  line-height: 33px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Special Styling for home page grid (below):
+
+The first (most recent) post in the list is styled to be bigger than the others and take over the full width of the grid to give it more emphasis. Wrapped in a media query to make sure this only happens on large viewports / desktop-ish devices.
+
+*/
+
+@media (min-width: 795px) {
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) {
+      flex: 1 1 100%;
+      flex-direction: row;
+  }
+
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) .post-card-image-link {
+      position: relative;
+      flex: 1 1 auto;
+      border-radius: 5px 0 0 5px;
+  }
+
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) .post-card-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+  }
+
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) .post-card-content {
+      flex: 0 1 357px;
+  }
+
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) .post-card-content-link {
+      padding: 20px 20px 0;
+  }
+
+  .home-template .post-feed .post-card:nth-child(6n+1):not(.no-image) .post-card-meta {
+      padding: 0 20px 30px;
+  }
+}
+
+.home-template .site-header:after {
+  display: none;
+}
+
+
+/* Adjust some margins for smaller screens */
+@media (max-width: 650px) {
+  .post-feed {
+      padding-top: 5vw;
+  }
+  .post-card {
+      margin: 0 20px 5vw;
+  }
+}
+
+
+
+/* 7. Single Post
+/* ---------------------------------------------------------- */
+
+.post-template .site-main,
+.page-template .site-main {
+  padding-bottom: 4vw;
+  background: #fff;
+}
+
+.post-full {
+  position: relative;
+  z-index: 50;
+}
+/* ^ Required to make .post-full-content:before/after z-index stacking work */
+
+.post-full-header {
+  margin: 0 auto;
+  padding: 6vw 3vw 3vw;
+  max-width: 1040px;
+  text-align: center;
+}
+@media (max-width: 500px) {
+  .post-full-header {
+      padding: 14vw 3vw 10vw;
+  }
+}
+
+.post-full-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.post-full-title {
+  margin: 0;
+}
+
+.date-divider {
+  display: inline-block;
+  margin: 0 6px 1px;
+}
+
+.post-full-image {
+  margin: 0 -10vw -165px;
+  height: 800px;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+@media (max-width: 1170px) {
+  .post-full-image {
+      margin: 0 -4vw -100px;
+      height: 600px;
+      border-radius: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .post-full-image {
+      height: 400px;
+  }
+}
+
+.post-full-content {
+  position: relative;
+  margin: 0 auto;
+  padding: 70px 100px 0;
+  min-height: 230px;
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1.6em;
+  background: #fff;
+}
+
+@media (max-width: 1170px) {
+  .post-full-content {
+      padding: 5vw 7vw 0;
+  }
+}
+@media (max-width: 800px) {
+  .post-full-content {
+      font-size: 1.9rem;
+  }
+}
+
+.post-full-content:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  z-index: -1;
+  display: block;
+  width: 20px;
+  height: 200px;
+  background: rgba(39,44,49,0.15);
+  filter: blur(5px);
+  transform: rotate(-5deg);
+}
+
+.post-full-content:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  z-index: -1;
+  display: block;
+  width: 20px;
+  height: 200px;
+  background: rgba(39,44,49,0.15);
+  filter: blur(5px);
+  transform: rotate(5deg);
+}
+
+.no-image .post-full-content {
+  padding-top: 0;
+}
+
+.no-image .post-full-content:before,
+.no-image .post-full-content:after {
+  display: none;
+}
+
+.post-full-content h1,
+.post-full-content h2,
+.post-full-content h3,
+.post-full-content h4,
+.post-full-content h5,
+.post-full-content h6,
+.post-full-content p,
+.post-full-content ul,
+.post-full-content ol,
+.post-full-content dl,
+.post-full-content pre,
+.post-full-content blockquote,
+.post-full-comments,
+.footnotes {
+  min-width: 100%;
+}
+
+.post-full-content li {
+  word-break: break-word;
+}
+
+.post-full-content li p {
+  margin: 0;
+}
+
+.post-full-content a {
+  color: #000;
+}
+
+.post-full-content a:hover {
+  text-decoration: none;
+}
+
+.post-full-content small {
+  display: inline-block;
+  line-height: 1.6em;
+}
+
+.post-full-content li:first-child {
+  margin-top: 0;
+}
+
+.post-full-content img,
+.post-full-content video {
+  display: block;
+  margin: 1.5em auto;
+  max-width: 1040px;
+}
+@media (max-width: 1040px) {
+  .post-full-content img,
+  .post-full-content video {
+      width: 100%;
+  }
+}
+
+
+/* Full bleed images (#full)
+Super neat trick courtesy of @JoelDrapper
+
+Usage (In Ghost edtior):
+
+![img](/some/image.jpg#full)
+
+*/
+.post-full-content img[src$="#full"] {
+  max-width: none;
+  width: 100vw;
+}
+
+
+/* Image captions
+
+Usage (In Ghost editor):
+
+![img](/some/image.jpg)
+<small>Your image caption</small>
+
+*/
+.post-full-content img + br + small {
+  display: block;
+  margin-top: -3em;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+
+.post-full-content iframe {
+  margin: 0 auto;
+}
+
+.post-full-content blockquote {
+  margin: 0 0 1.5em;
+  padding: 0 1.5em;
+  border-left: #3eb0ef 3px solid;
+}
+
+.post-full-content blockquote p {
+  margin: 0 0 1em 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-style: italic;
+}
+
+.post-full-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-full-content code {
+  padding: 0 5px 2px;
+  font-size: 0.8em;
+  line-height: 1em;
+  font-weight: 400!important;
+  border-radius: 3px;
+}
+
+.post-full-content pre {
+  overflow-x: auto;
+  margin: 1.5em 0 3em;
+  padding: 20px;
+  max-width: 100%;
+  font-size: 1.4rem;
+  line-height: 1.5em;
+  border-radius: 5px;
+}
+
+.post-full-content pre code {
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  background: transparent;
+}
+
+.post-full-content pre code * {
+  color: inherit;
+}
+
+.post-full-content .fluid-width-video-wrapper {
+  margin: 1.5em 0 3em;
+}
+
+.post-full-content hr {
+  margin: 4vw 0;
+}
+
+.post-full-content hr:after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  display: block;
+  margin-left: -10px;
+  width: 1px;
+  height: 30px;
+  box-shadow: #fff 0 0 0 5px;
+  transform: rotate(45deg);
+}
+
+.post-full-content h1,
+.post-full-content h2,
+.post-full-content h3,
+.post-full-content h4,
+.post-full-content h5,
+.post-full-content h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.post-full-content h1 {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 4.6rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .post-full-content h1 {
+      font-size: 2.8rem;
+  }
+}
+
+.post-full-content h2 {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .post-full-content h2 {
+      font-size: 2.6rem;
+  }
+}
+
+.post-full-content h3 {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .post-full-content h3 {
+      font-size: 2.2rem;
+  }
+}
+
+.post-full-content h4 {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .post-full-content h4 {
+      font-size: 2.2rem;
+  }
+}
+
+.post-full-content h5 {
+  display: block;
+  margin: 0.5em 0;
+  padding: 1em 0 1.5em;
+  border: 0;
+  font-family: Georgia,serif;
+  font-size: 3.2rem;
+  line-height: 1.35em;
+  text-align: center;
+}
+@media (min-width: 1180px) {
+  .post-full-content h5 {
+      max-width: 1060px;
+      width: 100vw;
+  }
+}
+@media (max-width: 500px) {
+  .post-full-content h5 {
+      padding: 0 0 0.5em;
+      font-size: 2.2rem;
+  }
+}
+
+.post-full-content h6 {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+@media (max-width: 500px) {
+  .post-full-content h6 {
+      font-size: 2rem;
+  }
+}
+
+.footnotes-sep {
+  margin-bottom: 30px;
+}
+
+.footnotes {
+  font-size: 1.5rem;
+}
+
+.footnotes p {
+  margin: 0;
+}
+
+.footnote-backref {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* Some grouped styles for smaller viewports */
+@media (max-width: 500px) {
+  .post-full-meta {
+      font-size: 1.2rem;
+      line-height: 1.3em;
+  }
+  .post-full-title {
+      font-size: 2.9rem;
+  }
+  .post-full-image {
+      margin-bottom: 4vw;
+      height: 350px;
+  }
+  .post-full-content {
+      padding: 0;
+  }
+  .post-full-content:before,
+  .post-full-content:after {
+      display: none;
+  }
+}
+
+/* Tables */
+.post-full-content table {
+  display: inline-block;
+  overflow-x: auto;
+  margin: 0.5em 0 2.5em;
+  max-width: 100%;
+  width: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.6rem;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.post-full-content table {
+  -webkit-overflow-scrolling: touch;
+  background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+  background-attachment: scroll, scroll;
+  background-size: 10px 100%, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:first-child {
+  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table td:last-child {
+  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-position: 100% 0;
+  background-size: 20px 100%;
+  background-repeat: no-repeat;
+}
+
+.post-full-content table th {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.post-full-content table th,
+.post-full-content table td {
+  padding: 6px 12px;
+}

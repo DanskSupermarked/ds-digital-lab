@@ -1,0 +1,27 @@
+{{! This is the post loop - each post will be output using this markup }}
+{{#foreach posts}}
+<article class="post-card {{post_class}}{{#unless image}} no-image{{/unless}}">
+    {{#if image}}
+        <a class="post-card-image-link" href="{{url}}">
+            <div class="post-card-image" style="background-image: url({{image}})"></div>
+        </a>
+    {{/if}}
+    <div class="post-card-content">
+         {{#if tags}}
+            <span class="post-card-tags">Tags: {{{tags separator=", "}}}</span>
+        {{/if}}
+        <span class="post-card-author">Author <a href="/author/{{author.slug}}">{{author.name}}</a></span>
+        <a class="post-card-content-link" href="{{url}}">
+            <header class="post-card-header">
+               
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date published_at timeago="true"}}</time> &middot; {{#read_time}}{{content}}{{/read_time}} read
+                <h2 class="post-card-title">{{title}}</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>{{excerpt words="33"}}...</p>
+            </section>
+        </a>
+    </div>
+</article>
+
+{{/foreach}}

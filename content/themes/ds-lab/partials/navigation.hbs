@@ -1,8 +1,19 @@
 <div class="nav clearfix">
     <div class="nav__items">
-        <a href="/" class="nav__item nav__item--logo">&nbsp;&nbsp;-&nbsp;&nbsp;{{@blog.description}}</a>
+        <a href="/" class="nav__item nav__item--logo hidden-mobile inline">&nbsp;&nbsp;-&nbsp;&nbsp;{{@blog.description}}</a>
     </div>
     <div class="nav__items nav__items--right">
+        <a href="/writing-stories/" class="nav__item small hidden-mobile inline">Write a story</a>
+        <a href="/about/" class="nav__item small hidden-mobile inline">About</a>
+        <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="right nav__item nav__item--share">
+            <img data-src="{{asset "/images/twitter.svg"}}" class="lazy-image">
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="right nav__item nav__item--share">
+            <img data-src="{{asset "/images/facebook.svg"}}" class="lazy-image">
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'linkedin-share', 'width=850,height=735');return false;" class="right nav__item nav__item--share">
+            <img data-src="{{asset "/images/linkedin.svg"}}" class="lazy-image">
+        </a>
         <a href="/search/" class="nav__item btn btn--small">Search</a>
         <a href="/ghost/" class="nav__item btn btn--cta btn--small nav__item--sign-in">Sign in</a>
     </div>

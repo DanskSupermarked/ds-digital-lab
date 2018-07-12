@@ -27,3 +27,18 @@
   padding-bottom: 12.5%;
   background-color: $color-grey-lighter;
 }
+
+.ribbon {
+  width: 100%;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url('/assets/images/white-transparent.png') repeat;
+
+  span a {
+    margin-top: 0;
+    border: solid 1px $color-grey;
+  }
+}

@@ -26,3 +26,21 @@ a.dimmed {
     color: $color-black;
   }
 }
+
+.hidden-mobile {
+  display: none !important;
+
+  @media (min-width: 560px) {
+    display: block !important;
+  }
+
+  @media (min-width: 560px) {
+    &.inline {
+      display: inline-block !important;
+    }
+  }
+}
+
+.centered {
+  text-align: center;
+}

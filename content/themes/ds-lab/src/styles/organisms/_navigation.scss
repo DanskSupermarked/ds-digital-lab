@@ -8,12 +8,12 @@
 
 .nav--sticky {
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
   transition: transform 0.25s ease-out;
-  transform: translate3d(0, -5.5rem, 0);
+  transform: translate3d(0, -.2rem, 0);
   border-bottom: 1px solid rgba($color-grey-light, 0.5);
   background-color: rgba($color-white, 0.98);
 }
@@ -36,6 +36,10 @@
   margin-top: 0.5em;
 }
 
+.nav__items--right {
+  text-align: center;
+}
+
 @media (min-width: 560px) {
   .nav__items {
     float: left;
@@ -47,7 +51,7 @@
   }
 
   .nav__items--right {
-    float: right;
+    float: right
   }
 }
 
@@ -57,6 +61,8 @@
   &:first-child {
     margin-left: 0;
   }
+  text-decoration: none;
+  color: $color-primary;
 }
 
 .nav__item--right {
@@ -68,27 +74,32 @@
   font-family: $font-family-heading;
   font-size: $font-size-h3;
   font-weight: 200;
-  line-height: 2.5em / $font-size-h3 * $font-size-x-small;
   position: relative;
   padding: 1px 0;
   transition: color 0.15s ease-out;
   text-decoration: none;
   color: $color-grey;
+
   &:hover {
     color: $color-black;
   }
-  @media (min-width: 360px) {
-    padding-left: 200px;
-    &:before {
-      position: absolute;
-      bottom: 0;
+  
+  padding-left: 200px;
+  &:before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 200px;
+    height: 35px;
+    content: '';
+    background: url(/assets/images/s-group_logo.svg) no-repeat center center;
+    background-size: contain;
+
+    @media (min-width: 560px) {
       left: 0;
-      display: block;
-      width: 200px;
-      height: 35px;
-      content: '';
-      background: url(/assets/images/s-group_logo.svg) no-repeat center center;
-      background-size: contain;
+      transform: translateX(0);
     }
   }
 }
