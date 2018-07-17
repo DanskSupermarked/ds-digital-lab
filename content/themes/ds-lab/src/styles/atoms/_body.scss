@@ -36,11 +36,11 @@ blockquote,
 q {
   font-style: italic;
   max-width: $content-max-width;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding: 1em 0 1em 1em;
-  color: $color-grey;
-  border-left: 2px solid $color-grey-light;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding: .5em 0 .5em 1em;
+  color: $color-grey-dark;
+  border-left: 10px solid $color-tertiary;
   p {
     margin: 0;
   }

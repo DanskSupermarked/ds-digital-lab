@@ -7,7 +7,7 @@ ES6 code is translated into ES5 using [babeljs](https://babeljs.io/).
 
 ## Use dependencies
 
-A lot of common Dansk Supermarked javascript code have been placed as NPM packages in our private NPM registry.
+A lot of common Salling Group javascript code have been placed as NPM packages in our private NPM registry.
 
 Install these using npm and import them like:
 
