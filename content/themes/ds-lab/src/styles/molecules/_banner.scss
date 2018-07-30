@@ -1,14 +1,23 @@
 .banner {
   font-family: $font-family-heading;
-  padding-top: 3em;
-  padding-bottom: 4em;
+  padding-top: .5em;
+  padding-bottom: .51em;
   text-align: center;
   color: $color-white;
   background: $color-secondary url('/assets/images/binary-code.svg') repeat;
   background-size: 3%;
   position: relative;
+  @media (min-width: 650px) {
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
   small {
     color: $color-grey;
+  }
+  h1{
+    @media (max-width: 649px) {
+      font-size: $font-size-h1 * .6;
+    }
   }
   p,
   h1 {
@@ -32,10 +41,9 @@
   width: 100%;
   margin: 0;
   padding: 5px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: url('/assets/images/white-transparent.png') repeat;
+  position: relative;
+  background: $color-grey url('/assets/images/white-transparent.png') repeat;
+  text-align: center;
 
   span a {
     margin-top: 0;

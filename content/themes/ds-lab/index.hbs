@@ -4,8 +4,10 @@
 {{! The big featured header }}
 <header class="main-header banner">
   <h1 class="h2">{{@blog.title}}</h1>
-  <p>{{@blog.description}}<br><small>Stories from our Digital Department about technology, work and whatever we find interesting.</small></p>
-  <div class="ribbon tags hidden-mobile">
+  <p>{{@blog.description}}<br><small>Stories from our Digital Department about technology, work and whatever we find interesting</small></p>
+</header>
+<div class="ribbon tags">
+  <p class="no-margin-top margin-bottom"><small>Filter by tag</small></p>
     {{#get "tags" limit="30" include="count.posts" order="count.posts desc"}}
       <span>
         {{#foreach tags}}
@@ -14,7 +16,6 @@
       </span>
     {{/get}}
   </div>
-</header>
 
 <main id="site-main" class="site-main outer">
   <div class="inner">
@@ -29,7 +30,7 @@
 {{#get "tags" limit="30" include="count.posts" order="count.posts desc"}}
 <aside class="boxes">
 	<div class="boxes__item--transparent boxes__item--no-margin-top tags tags--cloud centered">
-		<h3>Categories</h3>
+		<h3>Tags</h3>
     <p>
     	{{#foreach tags}}
           <a href="/tag/{{slug}}">{{name}}</a>

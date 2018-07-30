@@ -1,10 +1,13 @@
 <div class="nav clearfix">
-    <div class="nav__items">
-        <a href="/" class="nav__item nav__item--logo hidden-mobile inline">&nbsp;&nbsp;-&nbsp;&nbsp;{{@blog.description}}</a>
+    <div class="nav__items hidden-mobile">
+        <a href="/" class="nav__item nav__item--logo inline">&nbsp;&nbsp;-&nbsp;&nbsp;{{@blog.description}}</a>
     </div>
     <div class="nav__items nav__items--right">
         <a href="/writing-stories/" class="nav__item small hidden-mobile inline">Write a story</a>
         <a href="/about/" class="nav__item small hidden-mobile inline">About</a>
+        <a href="/" class="right nav__item nav__item--share">
+            <img data-src="{{asset "/images/s-group_logo.svg"}}" class="lazy-image">
+        </a>
         <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="right nav__item nav__item--share">
             <img data-src="{{asset "/images/twitter.svg"}}" class="lazy-image">
         </a>
